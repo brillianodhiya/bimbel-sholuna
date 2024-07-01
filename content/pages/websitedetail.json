@@ -1,0 +1,17 @@
+{
+  "_id": "2iedFvqIb6cwOI2oUgtmKq2kKtJ",
+  "_type": "WebsiteDetail",
+  "_index": "a0",
+  "_i18nId": "2iedFviDJHpMQa2YPhZwOyQj5wI",
+  "_seeded": "/websitedetail.json",
+  "_root": "pages",
+  "title": "Overview",
+  "judul_website": "Bimbel Sholuna v1",
+  "deskripsi": "Bimbel Sholuna adalah bimbingan belajar online yang menyediakan layanan bimbingan belajar online untuk siswa SD, SMP, SMA, dan SMK.",
+  "logo": {},
+  "favicon": {},
+  "slogan": "Bimbel Sholuna, Bimbingan Belajar Online Terbaik",
+  "nomor_wa": "6281234567890",
+  "text_chat_wa": "Halo, saya ingin bertanya tentang bimbel Sholuna.",
+  "label_wa": "Chat WA"
+}
