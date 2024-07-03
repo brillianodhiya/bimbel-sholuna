@@ -1,8 +1,10 @@
 import Image from "next/image";
 import { Button } from "@nextui-org/button";
+import { motion } from "framer-motion";
 
 import DefaultLayout from "@/layouts/default";
 import { WhatsappLogo } from "@/components/icons";
+import LayananSection from "@/components/LayananSection";
 
 export default function IndexPage() {
   return (
@@ -29,26 +31,32 @@ export default function IndexPage() {
       >
         <div className="mx-auto px-4 sm:px-6 z-20 w-full">
           <div className="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center w-full">
-            <div className="ml-0 sm:ml-[8vw]">
-              <h1 className="block text-3xl font-bold text-[#085C79] sm:text-4xl lg:text-6xl lg:leading-tight">
-                Bimble Sholuna <br /> Solusi Tepat Guna
-              </h1>
-              <p className="mt-10 text-lg text-[#085C79] ">
-                Sistem belajar Online, Privat dengan satu murid dan satu guru,
-                dan Semiprivat dengan maksimal 3 murid
-              </p>
-              <Button
-                // color="#059669"
-                className="bg-[#059669] mt-10 font-bold rounded-full"
-                color="primary"
-                size="lg"
-                startContent={<WhatsappLogo />}
-                variant="solid"
-              >
-                Chat WA Admin
-              </Button>
-              <div className="mt-7 grid gap-3 w-full sm:inline-flex">
-                {/* <a
+            <motion.div
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="ml-0 sm:ml-[8vw]">
+                <h1 className="block text-3xl font-bold text-[#085C79] sm:text-4xl lg:text-6xl lg:leading-tight">
+                  Bimble Sholuna <br /> Solusi Tepat Guna
+                </h1>
+                <p className="mt-10 text-lg text-[#085C79] ">
+                  Sistem belajar Online, Privat dengan satu murid dan satu guru,
+                  dan Semiprivat dengan maksimal 3 murid
+                </p>
+                <Button
+                  // color="#059669"
+                  className="bg-[#059669] mt-10 font-bold rounded-full"
+                  color="primary"
+                  size="lg"
+                  startContent={<WhatsappLogo />}
+                  variant="solid"
+                >
+                  Chat WA Admin
+                </Button>
+                <div className="mt-7 grid gap-3 w-full sm:inline-flex">
+                  {/* <a
                   className="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
                   href="#"
                 >
@@ -74,26 +82,38 @@ export default function IndexPage() {
                 >
                   Contact sales team
                 </a> */}
+                </div>
               </div>
-            </div>
-
-            <div className="relative ms-4">
-              <div className="w-full text-center flex justify-center content-center items-center">
-                <div className="bg-[#34D399] w-2/3 h-[85%] absolute rounded-[30px] z-20 top-0" />
-                <Image
-                  alt="Image Description"
-                  className="w-2/3 rounded-md z-30 relative"
-                  height={1000}
-                  src="/banner-home.png"
-                  width={1000}
-                />
+            </motion.div>
+            <motion.div
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              initial={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="relative ms-4">
+                <div className="w-full text-center flex justify-center content-center items-center">
+                  <div className="bg-[#34D399] w-2/3 h-[85%] absolute rounded-[30px] z-20 top-0" />
+                  <Image
+                    alt="Image Description"
+                    className="w-2/3 rounded-md z-30 relative"
+                    height={500}
+                    src="/banner-home.png"
+                    width={500}
+                  />
+                </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      <section id="layanan">TEST</section>
+      <section
+        className="w-full z-20 flex flex-row flex-wrap justify-between gap-4 py-8 md:py-10"
+        id="layanan"
+      >
+        <LayananSection />
+      </section>
     </DefaultLayout>
   );
 }
