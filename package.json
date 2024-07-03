@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "alinea dev -- next dev --turbo",
-    "build": "alinea build -- next build",
     "start": "next start",
-    "lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix"
+    "dev": "next dev --turbo",
+    "lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix",
+    "build": "next build"
   },
   "dependencies": {
     "@nextui-org/button": "2.0.34",

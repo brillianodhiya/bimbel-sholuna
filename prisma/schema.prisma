@@ -23,6 +23,7 @@ model Overview {
 model Layanan {
   id    Int     @id @default(autoincrement())
   title String  @unique
+  deskripsi String
   layananDetails LayananDetail[]
 }
 

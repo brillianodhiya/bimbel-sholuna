@@ -1,14 +1,15 @@
 import Image from "next/image";
+import { Button } from "@nextui-org/button";
 
 import DefaultLayout from "@/layouts/default";
-import { Button } from "@nextui-org/button";
+import { WhatsappLogo } from "@/components/icons";
 
 export default function IndexPage() {
   return (
     <DefaultLayout>
       <Image
         alt="Ellipse"
-        className="absolute left-0 top-0 z-10 opacity-50"
+        className="absolute left-0 top-0 z-10 opacity-20"
         height={2000}
         src={"/Ellipse 145.svg"}
         width={2000}
@@ -16,7 +17,7 @@ export default function IndexPage() {
       />
       <Image
         alt="Ellipse"
-        className="absolute right-0 top-0 z-10 opacity-50"
+        className="absolute right-0 top-0 z-10 opacity-20"
         height={2000}
         src={"/Ellipse 144.svg"}
         width={2000}
@@ -32,17 +33,17 @@ export default function IndexPage() {
               <h1 className="block text-3xl font-bold text-[#085C79] sm:text-4xl lg:text-6xl lg:leading-tight dark:text-white">
                 Bimble Sholuna <br /> Solusi Tepat Guna
               </h1>
-              <p className="mt-8 text-lg text-[#085C79] dark:text-neutral-400">
+              <p className="mt-10 text-lg text-[#085C79] dark:text-neutral-400">
                 Sistem belajar Online, Privat dengan satu murid dan satu guru,
                 dan Semiprivat dengan maksimal 3 murid
               </p>
               <Button
                 // color="#059669"
+                className="bg-[#059669] mt-10 font-bold rounded-full"
                 color="primary"
-                className="bg-[#059669] mt-8 font-bold"
-                variant="solid"
                 size="lg"
-                // startContent={<UserIcon />}
+                startContent={<WhatsappLogo />}
+                variant="solid"
               >
                 Chat WA Admin
               </Button>
@@ -91,6 +92,8 @@ export default function IndexPage() {
           </div>
         </div>
       </section>
+
+      <section id="layanan">TEST</section>
     </DefaultLayout>
   );
 }

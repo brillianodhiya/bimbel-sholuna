@@ -56,6 +56,7 @@ export const Navbar = () => {
         backgroundColor: "transparent",
         // backdropFilter: "saturate(180%) blur(20px)",
       }}
+      height={"90px"}
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand className="gap-3 max-w-fit">
@@ -66,13 +67,13 @@ export const Navbar = () => {
         </NavbarBrand>
       </NavbarContent>
 
-      <div className="hidden sm:flex gap-4 justify-start ml-2">
+      <div className="hidden sm:flex gap-12 justify-start ml-2">
         {siteConfig.navItems.map((item) => (
           <NavbarItem key={item.href}>
             <NextLink
               className={clsx(
                 linkStyles({ color: "foreground" }),
-                "data-[active=true]:text-primary data-[active=true]:font-bold font-bold"
+                "data-[active=true]:text-primary data-[active=true]:font-semibold font-semibold text-lg"
               )}
               color="foreground"
               href={item.href}
