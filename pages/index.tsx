@@ -1,58 +1,94 @@
-import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code";
-import { button as buttonStyles } from "@nextui-org/theme";
+import Image from "next/image";
 
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
 import DefaultLayout from "@/layouts/default";
+import { Button } from "@nextui-org/button";
 
 export default function IndexPage() {
   return (
     <DefaultLayout>
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-        <div className="inline-block max-w-lg text-center justify-center">
-          <h1 className={title()}>Make&nbsp;</h1>
-          <h1 className={title({ color: "violet" })}>beautiful&nbsp;</h1>
-          <br />
-          <h1 className={title()}>
-            websites regardless of your design experience.
-          </h1>
-          <h4 className={subtitle({ class: "mt-4" })}>
-            Beautiful, fast and modern React UI library.
-          </h4>
-        </div>
+      <Image
+        alt="Ellipse"
+        className="absolute left-0 top-0 z-10 opacity-50"
+        height={2000}
+        src={"/Ellipse 145.svg"}
+        width={2000}
+        // fetchPriority="auto"
+      />
+      <Image
+        alt="Ellipse"
+        className="absolute right-0 top-0 z-10 opacity-50"
+        height={2000}
+        src={"/Ellipse 144.svg"}
+        width={2000}
+        // fetchPriority="auto"
+      />
+      <section
+        className="w-full z-20 flex flex-row flex-wrap justify-between gap-4 py-8 md:py-10"
+        id="home"
+      >
+        <div className="mx-auto px-4 sm:px-6 z-20 w-full">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center w-full">
+            <div className="ml-0 sm:ml-[8vw]">
+              <h1 className="block text-3xl font-bold text-[#085C79] sm:text-4xl lg:text-6xl lg:leading-tight dark:text-white">
+                Bimble Sholuna <br /> Solusi Tepat Guna
+              </h1>
+              <p className="mt-8 text-lg text-[#085C79] dark:text-neutral-400">
+                Sistem belajar Online, Privat dengan satu murid dan satu guru,
+                dan Semiprivat dengan maksimal 3 murid
+              </p>
+              <Button
+                // color="#059669"
+                color="primary"
+                className="bg-[#059669] mt-8 font-bold"
+                variant="solid"
+                size="lg"
+                // startContent={<UserIcon />}
+              >
+                Chat WA Admin
+              </Button>
+              <div className="mt-7 grid gap-3 w-full sm:inline-flex">
+                {/* <a
+                  className="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+                  href="#"
+                >
+                  Get started
+                  <svg
+                    className="flex-shrink-0 size-4"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="m9 18 6-6-6-6" />
+                  </svg>
+                </a>
+                <a
+                  className="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800"
+                  href="#"
+                >
+                  Contact sales team
+                </a> */}
+              </div>
+            </div>
 
-        <div className="flex gap-3">
-          <Link
-            isExternal
-            className={buttonStyles({
-              color: "primary",
-              radius: "full",
-              variant: "shadow",
-            })}
-            href={siteConfig.links.docs}
-          >
-            Documentation
-          </Link>
-          <Link
-            isExternal
-            className={buttonStyles({ variant: "bordered", radius: "full" })}
-            href={siteConfig.links.github}
-          >
-            <GithubIcon size={20} />
-            GitHub
-          </Link>
-        </div>
-
-        <div className="mt-8">
-          <Snippet hideCopyButton hideSymbol variant="bordered">
-            <span>
-              Get started by editing{" "}
-              <Code color="primary">pages/index.tsx</Code>
-            </span>
-          </Snippet>
+            <div className="relative ms-4">
+              <div className="w-full text-center flex justify-center content-center items-center">
+                <div className="bg-[#34D399] w-2/3 h-[85%] absolute rounded-[30px] z-20 top-0" />
+                <Image
+                  alt="Image Description"
+                  className="w-2/3 rounded-md z-30 relative"
+                  height={1000}
+                  src="/banner-home.png"
+                  width={1000}
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </DefaultLayout>

@@ -19,3 +19,31 @@ model Overview {
   text_chat_wa String
   label_wa String
 }
+
+model Layanan {
+  id    Int     @id @default(autoincrement())
+  title String  @unique
+  layananDetails LayananDetail[]
+}
+
+model LayananDetail {
+  id    Int     @id @default(autoincrement())
+  title String  @unique
+  layanan Layanan @relation(fields: [layananId], references: [id])
+  layananId Int
+}
+
+model Testimoni {
+  id    Int     @id @default(autoincrement())
+  nama String
+  pekerjaan String
+  testimoni String
+  foto String
+}
+
+model Sistem {
+  id    Int     @id @default(autoincrement())
+  title String  @unique
+  deskripsi String
+  icon String
+}

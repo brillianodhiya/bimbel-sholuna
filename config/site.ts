@@ -1,28 +1,25 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Next.js + NextUI",
-  description: "Make beautiful websites regardless of your design experience.",
+  name: "Bimbel Sholuna | Solusi Tepat Guna",
+  description:
+    "Sistem belajar Online, Privat (1 murid 1 guru) dan Semiprivat (maks.3 murid)",
   navItems: [
     {
       label: "Home",
-      href: "/",
+      href: "#home",
     },
     {
-      label: "Docs",
-      href: "/docs",
+      label: "Layanan",
+      href: "#layanan",
     },
     {
-      label: "Pricing",
-      href: "/pricing",
+      label: "Testimoni",
+      href: "#testimoni",
     },
     {
-      label: "Blog",
-      href: "/blog",
-    },
-    {
-      label: "About",
-      href: "/about",
+      label: "Kurikulum",
+      href: "#kurikulum",
     },
   ],
   navMenuItems: [
