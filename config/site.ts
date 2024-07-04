@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Bimbel Sholuna | Solusi Tepat Guna",
+  name: "Bimbel Sholuna | Solusi Belajar Tepat Guna",
   description:
     "Sistem belajar Online, Privat (1 murid 1 guru) dan Semiprivat (maks.3 murid)",
   navItems: [
