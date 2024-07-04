@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -10,7 +11,7 @@ const LayananSection = (props: Props) => {
         <motion.div
           animate={{ opacity: 1, x: 0 }}
           className="text-center"
-          exit={{ opacity: 0, x: 20 }}
+          // exit={{ opacity: 0, x: 20 }}
           initial={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.5 }}
         >
@@ -186,7 +187,7 @@ const LayananSection = (props: Props) => {
         <h1 className="text-3xl font-bold text-gray-800 sm:text-4xl">
           Layanan Bimble Kami
         </h1>
-        <p className="mt-1 text-gray-600 dark:text-neutral-400">
+        <p className="mt-1 text-gray-600 ">
           Temukan Paket Belajar yang Sesuai dengan Tujuan dan Kebutuhanmu
         </p>
       </div>
@@ -197,6 +198,10 @@ const LayananSection = (props: Props) => {
           exit={{ opacity: 0, x: 20 }}
           initial={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.5 }}
+          whileInView={{
+            x: 20,
+            transition: { duration: 0.5 },
+          }}
         >
           <div className="flex justify-center items-center size-12 mx-auto">
             <svg
@@ -244,6 +249,10 @@ const LayananSection = (props: Props) => {
           exit={{ opacity: 0, y: 20 }}
           initial={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.5 }}
+          whileInView={{
+            y: 0,
+            transition: { duration: 0.5 },
+          }}
         >
           <div className="flex justify-center items-center size-12 mx-auto">
             <svg
@@ -284,6 +293,7 @@ const LayananSection = (props: Props) => {
           exit={{ opacity: 0, x: -20 }}
           initial={{ opacity: 0, x: 20 }}
           transition={{ duration: 0.5 }}
+          whileInView={{ x: -20, transition: { duration: 0.5 } }}
         >
           <div className="flex justify-center items-center size-12 mx-auto">
             <svg
@@ -322,6 +332,10 @@ const LayananSection = (props: Props) => {
           exit={{ opacity: 0, x: 20 }}
           initial={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.5 }}
+          whileInView={{
+            x: 20,
+            transition: { duration: 0.5 },
+          }}
         >
           <div className="flex justify-center items-center size-12 mx-auto">
             <svg
@@ -362,6 +376,10 @@ const LayananSection = (props: Props) => {
           exit={{ opacity: 0, y: 20 }}
           initial={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.5 }}
+          whileInView={{
+            y: 0,
+            transition: { duration: 0.5 },
+          }}
         >
           <div className="flex justify-center items-center size-12 mx-auto">
             <svg
@@ -400,6 +418,10 @@ const LayananSection = (props: Props) => {
           exit={{ opacity: 0, x: -20 }}
           initial={{ opacity: 0, x: 20 }}
           transition={{ duration: 0.5 }}
+          whileInView={{
+            x: -20,
+            transition: { duration: 0.5 },
+          }}
         >
           <div className="flex justify-center items-center size-12 mx-auto">
             <svg
@@ -446,6 +468,10 @@ const LayananSection = (props: Props) => {
           exit={{ opacity: 0, x: -20 }}
           initial={{ opacity: 0, x: 20 }}
           transition={{ duration: 0.5 }}
+          whileInView={{
+            x: 20,
+            transition: { duration: 0.5 },
+          }}
         >
           <div className="flex justify-center items-center size-12 mx-auto">
             <svg

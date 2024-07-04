@@ -1,10 +1,16 @@
 import Image from "next/image";
 import { Button } from "@nextui-org/button";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 
 import DefaultLayout from "@/layouts/default";
 import { WhatsappLogo } from "@/components/icons";
-import LayananSection from "@/components/LayananSection";
+// import LayananSection from "@/components/LayananSection";
+// import Testimonials from "@/components/Testimonials";
+// import Kurikulum from "@/components/Kurikulum";
+const LayananSection = dynamic(() => import("@/components/LayananSection"));
+const Testimonials = dynamic(() => import("@/components/Testimonials"));
+const Kurikulum = dynamic(() => import("@/components/Kurikulum"));
 
 export default function IndexPage() {
   return (
@@ -36,6 +42,10 @@ export default function IndexPage() {
               exit={{ opacity: 0, x: 20 }}
               initial={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.5 }}
+              whileInView={{
+                scale: 1.05,
+                transition: { duration: 0.5 },
+              }}
             >
               <div className="ml-0 sm:ml-[8vw]">
                 <h1 className="block text-3xl font-bold text-[#085C79] sm:text-4xl lg:text-6xl lg:leading-tight">
@@ -97,6 +107,7 @@ export default function IndexPage() {
                   <Image
                     alt="Image Description"
                     className="w-2/3 rounded-md z-30 relative"
+                    fetchPriority="high"
                     height={500}
                     src="/banner-home.png"
                     width={500}
@@ -113,6 +124,20 @@ export default function IndexPage() {
         id="layanan"
       >
         <LayananSection />
+      </section>
+
+      <section
+        className="w-full z-20 flex flex-row flex-wrap py-8 md:py-10"
+        id="testimoni"
+      >
+        <Testimonials />
+      </section>
+
+      <section
+        className="w-full z-20 flex flex-row flex-wrap py-8 md:py-10"
+        id="kurikulum"
+      >
+        <Kurikulum />
       </section>
     </DefaultLayout>
   );
