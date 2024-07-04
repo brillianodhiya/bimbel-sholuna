@@ -1037,7 +1037,7 @@ const Kurikulum = (props: Props) => {
               </h2>
               <p className="text-gray-500">
                 {
-                  "Mengaji Qur'an Bersyahadah adalah program belajar mengaji Al-Qur'an yang dilakukan secara online. Program ini dilaksanakan oleh Yayasan Syahadah Indonesia."
+                  "Mengaji Qur'an Bersyahadah adalah program belajar mengaji Al-Qur'an yang dilakukan secara online. Program ini dilakukan oleh pengajar Qur'an bersyahadah (tersertifikasi)"
                 }
               </p>
             </div>
