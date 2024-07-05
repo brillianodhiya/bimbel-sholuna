@@ -23,8 +23,11 @@ export default function DefaultLayout({
           href="https://aitilokal.com"
           title="nextui.org homepage"
         >
-          <span className="text-default-600">Powered by</span>
-          <p className="text-primary">AITI Lokal</p>
+          <span className="text-default-600">© 2024</span>
+          <p className="text-black">
+            AITI <span className="text-red-500">Indonesia</span>. All rights
+            reserved.
+          </p>
         </Link>
       </footer>
     </div>

@@ -21,6 +21,14 @@ export const siteConfig = {
       label: "Kurikulum",
       href: "#kurikulum",
     },
+    {
+      label: "Pengajar",
+      href: "#pengajar",
+    },
+    {
+      label: "Galeri",
+      href: "#galeri",
+    },
   ],
   navMenuItems: [
     {

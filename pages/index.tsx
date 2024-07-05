@@ -5,6 +5,8 @@ import dynamic from "next/dynamic";
 
 import DefaultLayout from "@/layouts/default";
 import { WhatsappLogo } from "@/components/icons";
+import Pengajar from "@/components/Pengajar";
+import Galeri from "@/components/Galeri";
 // import LayananSection from "@/components/LayananSection";
 // import Testimonials from "@/components/Testimonials";
 // import Kurikulum from "@/components/Kurikulum";
@@ -40,7 +42,7 @@ export default function IndexPage() {
             <motion.div
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 20 }}
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -20, scale: 0.9 }}
               transition={{ duration: 0.5 }}
               whileInView={{
                 scale: 1.05,
@@ -138,6 +140,18 @@ export default function IndexPage() {
         id="kurikulum"
       >
         <Kurikulum />
+      </section>
+      <section
+        className="w-full z-20 flex flex-row flex-wrap py-8 md:py-10"
+        id="pengajar"
+      >
+        <Pengajar />
+      </section>
+      <section
+        className="w-full z-20 flex flex-row flex-wrap py-8 md:py-10"
+        id="galeri"
+      >
+        <Galeri />
       </section>
     </DefaultLayout>
   );
