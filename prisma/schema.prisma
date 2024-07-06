@@ -1,42 +1,46 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
 generator client {
   provider = "prisma-client-js"
-  output   = "./generated/client"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model Overview {
-  id    Int     @id @default(autoincrement())
-  title String  @unique
-  slogan  String
-  deskripsi String
-  nomor_wa String
-  text_chat_wa String
-  label_wa String
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  title String  @unique @default("Bimbel Sholuna")
+  slogan  String @default("Solusi Belajar Tepat Guna")
+  deskripsi String @default("Sistem belajar Online dan Inhouse (di rumah siswa), Privat dengan satu murid dan satu guru, dan Semiprivat dengan maksimal 3 murid")
+  deskripsi2 String @default("Sistem Inhouse dilaksanakan di rumah siswa secara tatap muka langsung, belajar jadi lebih interaktif, lebih aman, serta lebih efisien waktu")
+  nomor_wa String @default("6285886248699")
+  text_chat_wa String @default("Hallo Kak saya ingin bertanya")
+  label_wa String @default("Chat WA Admin")
 }
 
 model Layanan {
-  id    Int     @id @default(autoincrement())
-  title String  @unique
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
   deskripsi String
+  deksripsi_panjang String
   layananDetails LayananDetail[]
 }
 
 model LayananDetail {
-  id    Int     @id @default(autoincrement())
-  title String  @unique
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
   layanan Layanan @relation(fields: [layananId], references: [id])
-  layananId Int
+  layananId String @db.ObjectId
 }
 
 model Testimoni {
-  id    Int     @id @default(autoincrement())
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
   nama String
   pekerjaan String
   testimoni String
@@ -44,7 +48,7 @@ model Testimoni {
 }
 
 model Sistem {
-  id    Int     @id @default(autoincrement())
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
   title String  @unique
   deskripsi String
   icon String
