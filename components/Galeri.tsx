@@ -244,6 +244,69 @@ const Galeri = (props: Props) => {
               </div>
             </div>
           </button>
+          <button
+            className="group relative block rounded-xl overflow-hidden md:w-1/4 sm:w-[40%] w-full"
+            onClick={() => {
+              openZoomedImage("/1 Galeri belajar kimia SMA.jpeg");
+            }}
+          >
+            <div className="">
+              <Image
+                alt="1 Galeri belajar kimia SMA"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                height={500}
+                src="/1 Galeri belajar kimia SMA.jpeg"
+                width={500}
+              />
+            </div>
+            <div className="absolute bottom-0 start-0 end-0 p-2 sm:p-4">
+              <div className="text-xs font-bold text-white rounded-lg half-black backdrop-saturate-150 p-2 md:text-lg text-center">
+                Galeri belajar kimia SMA
+              </div>
+            </div>
+          </button>
+          <button
+            className="group relative block rounded-xl overflow-hidden sm:w-1/4 w-full"
+            onClick={() => {
+              openZoomedImage("/2 Galeri  Belajar biologi SMA.jpeg");
+            }}
+          >
+            <div className="">
+              <Image
+                alt="2 Galeri  Belajar biologi SMA"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                height={500}
+                src="/2 Galeri  Belajar biologi SMA.jpeg"
+                width={500}
+              />
+            </div>
+            <div className="absolute bottom-0 start-0 end-0 p-2 sm:p-4">
+              <div className="text-xs font-bold text-white rounded-lg half-black backdrop-saturate-150 p-2 md:text-lg text-center">
+                Galeri Belajar biologi SMA
+              </div>
+            </div>
+          </button>
+          <button
+            className="group relative block rounded-xl overflow-hidden sm:w-1/4 w-full"
+            onClick={() => {
+              openZoomedImage("/3 Galeri Belajar MTK SMP.jpeg");
+            }}
+          >
+            <div className="">
+              <Image
+                alt="3 Galeri Belajar MTK SMP"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                height={500}
+                src="/3 Galeri Belajar MTK SMP.jpeg"
+                width={500}
+              />
+            </div>
+            <div className="absolute bottom-0 start-0 end-0 p-2 sm:p-4">
+              <div className="text-xs font-bold text-white rounded-lg half-black backdrop-saturate-150 p-2 md:text-lg text-center">
+                Galeri Belajar MTK SMP
+              </div>
+            </div>
+          </button>
         </div>
       </div>
       <div className="max-w-2xl mx-auto text-center mb-4 mt-10">
@@ -423,78 +486,7 @@ const Galeri = (props: Props) => {
           </button>
         </div>
       </div>
-      <div className="max-w-2xl mx-auto text-center mb-4 mt-10">
-        <h4 className="text-2xl font-bold md:text-2xl md:leading-tight">
-          Galeri Belajar Asyik
-        </h4>
-      </div>
-      <div className="max-w-[85vw] px-4 py-8 sm:px-6 lg:px-8 lg:py-8 mx-auto">
-        <div className="flex flex-wrap gap-8 w-full justify-center items-start">
-          <button
-            className="group relative block rounded-xl overflow-hidden md:w-1/4 sm:w-[40%] w-full"
-            onClick={() => {
-              openZoomedImage("/1 Galeri belajar kimia SMA.jpeg");
-            }}
-          >
-            <div className="">
-              <Image
-                alt="1 Galeri belajar kimia SMA"
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                height={500}
-                src="/1 Galeri belajar kimia SMA.jpeg"
-                width={500}
-              />
-            </div>
-            <div className="absolute bottom-0 start-0 end-0 p-2 sm:p-4">
-              <div className="text-xs font-bold text-white rounded-lg half-black backdrop-saturate-150 p-2 md:text-lg text-center">
-                Galeri belajar kimia SMA
-              </div>
-            </div>
-          </button>
-          <button
-            className="group relative block rounded-xl overflow-hidden sm:w-1/4 w-full"
-            onClick={() => {
-              openZoomedImage("/2 Galeri  Belajar biologi SMA.jpeg");
-            }}
-          >
-            <div className="">
-              <Image
-                alt="2 Galeri  Belajar biologi SMA"
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                height={500}
-                src="/2 Galeri  Belajar biologi SMA.jpeg"
-                width={500}
-              />
-            </div>
-            <div className="absolute bottom-0 start-0 end-0 p-2 sm:p-4">
-              <div className="text-xs font-bold text-white rounded-lg half-black backdrop-saturate-150 p-2 md:text-lg text-center">
-                Galeri Belajar biologi SMA
-              </div>
-            </div>
-          </button>
-          <button
-            className="group relative block rounded-xl overflow-hidden sm:w-1/4 w-full"
-            onClick={() => {
-              openZoomedImage("/3 Galeri Belajar MTK SMP.jpeg");
-            }}
-          >
-            <div className="">
-              <Image
-                alt="3 Galeri Belajar MTK SMP"
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                height={500}
-                src="/3 Galeri Belajar MTK SMP.jpeg"
-                width={500}
-              />
-            </div>
-            <div className="absolute bottom-0 start-0 end-0 p-2 sm:p-4">
-              <div className="text-xs font-bold text-white rounded-lg half-black backdrop-saturate-150 p-2 md:text-lg text-center">
-                Galeri Belajar MTK SMP
-              </div>
-            </div>
-          </button>
-        </div>
-      </div>
+
       {zoomedImage && (
         <div
           className="zoomed-image-container"
