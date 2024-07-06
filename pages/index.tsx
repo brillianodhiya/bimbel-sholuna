@@ -51,7 +51,7 @@ export default function IndexPage() {
             >
               <div className="ml-0 sm:ml-[8vw]">
                 <h1 className="block text-3xl font-bold text-[#085C79] sm:text-4xl lg:text-6xl lg:leading-tight">
-                  Bimble Sholuna <br /> Solusi Belajar Tepat Guna
+                  Bimbel Sholuna <br /> Solusi Belajar Tepat Guna
                 </h1>
                 <p className="mt-10 text-lg text-[#085C79] ">
                   Sistem belajar Online dan Inhouse (di rumah siswa), Privat

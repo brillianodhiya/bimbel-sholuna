@@ -185,7 +185,7 @@ const LayananSection = (props: Props) => {
 
       <div className="text-center z-20 mt-40">
         <h1 className="text-3xl font-bold text-gray-800 sm:text-4xl">
-          Layanan Bimble Kami
+          Layanan Bimbel Kami
         </h1>
         <p className="mt-1 text-gray-600 ">
           Temukan Paket Belajar yang Sesuai dengan Tujuan dan Kebutuhanmu
