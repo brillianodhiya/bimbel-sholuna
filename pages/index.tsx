@@ -54,8 +54,14 @@ export default function IndexPage() {
                   Bimble Sholuna <br /> Solusi Belajar Tepat Guna
                 </h1>
                 <p className="mt-10 text-lg text-[#085C79] ">
-                  Sistem belajar Online, Privat dengan satu murid dan satu guru,
-                  dan Semiprivat dengan maksimal 3 murid
+                  Sistem belajar Online dan Inhouse (di rumah siswa), Privat
+                  dengan satu murid dan satu guru, dan Semiprivat dengan
+                  maksimal 3 murid
+                </p>
+                <p className="mt-10 text-lg text-[#085C79] ">
+                  Sistem Inhouse dilaksanakan di rumah siswa secara tatap muka
+                  langsung, belajar jadi lebih interaktif, lebih aman, serta
+                  lebih efisien waktu
                 </p>
                 <Button
                   // color="#059669"
