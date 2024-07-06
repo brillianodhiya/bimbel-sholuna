@@ -9,7 +9,7 @@ const Pengajar = (props: Props) => {
   return (
     <motion.div
       animate={{ y: 0, opacity: 1 }}
-      className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto"
+      className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto object-cover"
       initial={{ y: 20, opacity: 0 }}
       transition={{ ease: "easeInOut", duration: 0.75 }}
       whileInView={{
@@ -87,7 +87,7 @@ const Pengajar = (props: Props) => {
         <div className="text-center">
           <Image
             alt="Kak Hasya"
-            className="rounded-xl sm:size-48 lg:size-60 mx-auto"
+            className="rounded-xl sm:size-48 lg:size-60 mx-auto object-cover"
             height={900}
             src="/Guru_4.jpeg"
             width={900}
@@ -99,6 +99,44 @@ const Pengajar = (props: Props) => {
             </h3>
             <p className="text-xs text-gray-600 sm:text-sm lg:text-base">
               ITS (Guru fisika dan matematika)
+            </p>
+          </div>
+        </div>
+
+        <div className="text-center">
+          <Image
+            alt="Kak Nuris"
+            className="rounded-xl sm:size-48 lg:size-60 mx-auto object-cover"
+            height={900}
+            src="/Guru_5.jpeg"
+            width={900}
+          />
+
+          <div className="mt-2 sm:mt-4">
+            <h3 className="text-sm font-medium text-gray-800 sm:text-base lg:text-lg">
+              Kak Nuris
+            </h3>
+            <p className="text-xs text-gray-600 sm:text-sm lg:text-base">
+              S2 dan Dosen bahasa Inggris
+            </p>
+          </div>
+        </div>
+
+        <div className="text-center">
+          <Image
+            alt="Kak Hasya"
+            className="rounded-xl sm:size-48 lg:size-60 mx-auto object-cover"
+            height={900}
+            src="/Guru_6.jpeg"
+            width={900}
+          />
+
+          <div className="mt-2 sm:mt-4">
+            <h3 className="text-sm font-medium text-gray-800 sm:text-base lg:text-lg">
+              Kak Irma{" "}
+            </h3>
+            <p className="text-xs text-gray-600 sm:text-sm lg:text-base">
+              ASN Guru IPS dan Sejarah{" "}
             </p>
           </div>
         </div>
