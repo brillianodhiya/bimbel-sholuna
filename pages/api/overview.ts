@@ -24,7 +24,7 @@ export default async function handler(
           data: req.body,
         });
 
-        console.log(overview);
+        // console.log(overview);
         await prisma.$disconnect();
         res.status(200).json({
           error: false,
@@ -36,7 +36,7 @@ export default async function handler(
           data: req.body,
         });
 
-        console.log(overview);
+        // console.log(overview);
         await prisma.$disconnect();
         res.status(200).json({
           error: false,
