@@ -1,8 +1,9 @@
+import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
+
 import Image from "next/image";
 import { Button } from "@nextui-org/button";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
-import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
 
 import DefaultLayout from "@/layouts/default";
 import { WhatsappLogo } from "@/components/icons";
@@ -30,7 +31,7 @@ type Overview = {
 
 export const getServerSideProps = (async () => {
   // Fetch data from external API
-  const res = await fetch("http://localhost:3000/api/overview");
+  const res = await fetch("https://bimbelsholuna.com/api/overview");
   const overview: Overview = await res.json();
   // Pass data to the page via props
 
