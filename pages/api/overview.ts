@@ -18,6 +18,7 @@ export default async function handler(
   if (req.method === "POST") {
     try {
       const overviews = await prisma.overview.findFirst();
+
       if (!overviews) {
         const overview = await prisma.overview.create({
           data: req.body,

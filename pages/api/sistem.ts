@@ -20,7 +20,7 @@ export default async function handler(
       const layanans = await prisma.layanan.findMany({
         where: {
           id: {
-            in: [1, 2, 3],
+            in: ["1", "2", "3"],
           },
         },
       });
@@ -68,7 +68,7 @@ export default async function handler(
     const layanans = await prisma.layanan.findMany({
       where: {
         id: {
-          in: [1, 2, 3],
+          in: ["1", "2", "3"],
         },
       },
     });

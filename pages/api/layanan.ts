@@ -20,7 +20,7 @@ export default async function handler(
       const layanans = await prisma.layanan.findMany({
         where: {
           id: {
-            in: [1, 2, 3, 4, 5, 6, 7],
+            in: ["1", "2", "3", "4", "5", "6", "7"],
           },
         },
       });
@@ -38,7 +38,7 @@ export default async function handler(
           message: "Sukses menambahkan data",
         });
       } else {
-        const id = parseInt(req.body.id);
+        const id = req.body.id;
 
         delete req.body.id;
         const layanan = await prisma.layanan.update({
@@ -83,7 +83,7 @@ export default async function handler(
     const layanans = await prisma.layanan.findMany({
       where: {
         id: {
-          in: [1, 2, 3, 4, 5, 6, 7],
+          in: ["1", "2", "3", "4", "5", "6", "7"],
         },
       },
       include: {

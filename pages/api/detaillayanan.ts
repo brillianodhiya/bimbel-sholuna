@@ -20,7 +20,7 @@ export default async function handler(
       const layanan = await prisma.layananDetail.create({
         data: {
           title: req.body.title,
-          layananId: parseInt(req.body.layananId),
+          layananId: req.body.layananId,
         },
       });
 
@@ -48,7 +48,7 @@ export default async function handler(
     const layanans = await prisma.layanan.findMany({
       where: {
         id: {
-          in: [1, 2, 3, 4, 5, 6, 7],
+          in: ["1", "2", "3", "4", "5", "6", "7"],
         },
       },
       include: {
