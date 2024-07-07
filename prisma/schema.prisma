@@ -23,7 +23,7 @@ model Overview {
   text_chat_wa String @default("Hallo Kak saya ingin bertanya")
   label_wa String @default("Chat WA Admin")
 }
-
+ 
 model Layanan {
   id    String @id @default(auto()) @map("_id") @db.ObjectId
   title String
@@ -51,5 +51,5 @@ model Sistem {
   id    String @id @default(auto()) @map("_id") @db.ObjectId
   title String  @unique
   deskripsi String
-  icon String
+  icon String?
 }

@@ -11,23 +11,33 @@ type Data = {
   data?: any;
 };
 
+const listId = [
+  "668ab059e2905ee6a2e47a07",
+  "668ab134e2905ee6a2e47a0a",
+  "668ab1f0e2905ee6a2e47a0d",
+  "668ab2bce2905ee6a2e47a10",
+  "668ab364e2905ee6a2e47a13",
+  "668ab3c5e2905ee6a2e47a17",
+  "668ab44ee2905ee6a2e47a1b",
+];
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  if (req.method === "POST") {
+  if (req.method === "PATCH") {
     try {
       const layanans = await prisma.layanan.findMany({
-        where: {
-          id: {
-            in: ["1", "2", "3", "4", "5", "6", "7"],
-          },
-        },
+        // where: {
+        //   id: {
+        //     in: ["1", "2", "3", "4", "5", "6", "7"],
+        //   },
+        // },
       });
 
-      console.log(layanans);
+      // console.log(layanans);
 
-      if (layanans.length < 6) {
+      if (layanans.length < 7) {
         const layanan = await prisma.layanan.create({
           data: req.body,
         });
@@ -38,7 +48,9 @@ export default async function handler(
           message: "Sukses menambahkan data",
         });
       } else {
-        const id = req.body.id;
+        let id = req.body.id; // expect 1, 2, 3, 4, 5, 6, 7
+
+        id = listId[parseInt(id) - 1];
 
         delete req.body.id;
         const layanan = await prisma.layanan.update({
@@ -81,11 +93,11 @@ export default async function handler(
     // Handle any other HTTP method
     // console.log(req.body);
     const layanans = await prisma.layanan.findMany({
-      where: {
-        id: {
-          in: ["1", "2", "3", "4", "5", "6", "7"],
-        },
-      },
+      // where: {
+      //   id: {
+      //     in: ["1", "2", "3", "4", "5", "6", "7"],
+      //   },
+      // },
       include: {
         layananDetails: {
           select: {
@@ -95,6 +107,11 @@ export default async function handler(
           },
         },
       },
+    });
+
+    // rubah id ke angka 1, 2, 3, 4, 5, 6, 7
+    layanans.forEach((layanan) => {
+      layanan.id = (listId.indexOf(layanan.id) + 1).toString();
     });
 
     await prisma.$disconnect();
