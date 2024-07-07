@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Button } from "@nextui-org/button";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
 
 import DefaultLayout from "@/layouts/default";
 import { WhatsappLogo } from "@/components/icons";
@@ -14,7 +15,32 @@ const LayananSection = dynamic(() => import("@/components/LayananSection"));
 const Testimonials = dynamic(() => import("@/components/Testimonials"));
 const Kurikulum = dynamic(() => import("@/components/Kurikulum"));
 
-export default function IndexPage() {
+type Overview = {
+  data: {
+    id: string;
+    title: string;
+    slogan: string;
+    deskripsi: string;
+    deskripsi2: string;
+    nomor_wa: string;
+    text_chat_wa: string;
+    label_wa: string;
+  };
+};
+
+export const getServerSideProps = (async () => {
+  // Fetch data from external API
+  const res = await fetch("http://localhost:3000/api/overview");
+  const overview: Overview = await res.json();
+  // Pass data to the page via props
+
+  return { props: { overview } };
+}) satisfies GetServerSideProps<{ overview: Overview }>;
+
+export default function IndexPage({
+  overview,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  // console.log(overview);
   return (
     <DefaultLayout>
       <Image
@@ -51,17 +77,13 @@ export default function IndexPage() {
             >
               <div className="ml-0 sm:ml-[8vw]">
                 <h1 className="block text-3xl font-bold text-[#085C79] sm:text-4xl lg:text-6xl lg:leading-tight">
-                  Bimbel Sholuna <br /> Solusi Belajar Tepat Guna
+                  {overview.data.title} <br /> {overview.data.slogan}
                 </h1>
                 <p className="mt-10 text-lg text-[#085C79] ">
-                  Sistem belajar Online dan Inhouse (di rumah siswa), Privat
-                  dengan satu murid dan satu guru, dan Semiprivat dengan
-                  maksimal 3 murid
+                  {overview.data.deskripsi}
                 </p>
                 <p className="mt-10 text-lg text-[#085C79] ">
-                  Sistem Inhouse dilaksanakan di rumah siswa secara tatap muka
-                  langsung, belajar jadi lebih interaktif, lebih aman, serta
-                  lebih efisien waktu
+                  {overview.data.deskripsi2}
                 </p>
                 <Button
                   // color="#059669"
@@ -70,8 +92,14 @@ export default function IndexPage() {
                   size="lg"
                   startContent={<WhatsappLogo />}
                   variant="solid"
+                  onClick={() => {
+                    window.open(
+                      `https://wa.me/${overview.data.nomor_wa}?text=${overview.data.text_chat_wa}`,
+                      "_blank"
+                    );
+                  }}
                 >
-                  Chat WA Admin
+                  {overview.data.label_wa}
                 </Button>
                 <div className="mt-7 grid gap-3 w-full sm:inline-flex">
                   {/* <a
