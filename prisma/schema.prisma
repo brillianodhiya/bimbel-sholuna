@@ -22,6 +22,11 @@ model Overview {
   nomor_wa String @default("6285886248699")
   text_chat_wa String @default("Hallo Kak saya ingin bertanya")
   label_wa String @default("Chat WA Admin")
+  text_dibawah_wa String?
+  title_layanan String? 
+  subtitle_layanan String?
+  title_testimoni String?
+  subtitle_testimoni String?
 }
  
 model Layanan {
