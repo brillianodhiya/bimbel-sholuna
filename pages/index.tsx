@@ -158,11 +158,15 @@ export default function IndexPage({
                     alt="Banner-Bimbel-Sholuna"
                     className="w-2/3 rounded-md z-30 relative"
                     fetchPriority="auto"
-                    height={400}
+                    height={385}
                     loading="eager"
-                    sizes="100vw"
+                    sizes="
+                    (max-width: 640px) 180px,
+                    (max-width: 768px) 260px,
+                    (max-width: 1024px) 300px,
+                    385px"
                     src="/banner-home.png"
-                    width={400}
+                    width={385}
                     // fetchPriority="high"
                     rel="preload"
                   />
