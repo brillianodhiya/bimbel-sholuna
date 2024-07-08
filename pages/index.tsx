@@ -33,6 +33,11 @@ type Data = {
       nomor_wa: string;
       text_chat_wa: string;
       label_wa: string;
+      text_dibawah_wa?: string;
+      title_layanan?: string;
+      subtitle_layanan?: string;
+      title_testimoni?: string;
+      subtitle_testimoni?: string;
     };
     sistem: {
       id: string;
@@ -134,7 +139,7 @@ export default function IndexPage({
                   {data.data.overview.label_wa}
                 </Button>
                 <p className="pl-4 text-[#085C79] text-sm">
-                  (Info dan Pendaftaran)
+                  {data.data.overview.text_dibawah_wa}
                 </p>
                 <div className="mt-7 grid gap-3 w-full sm:inline-flex">
                   {/* <a
@@ -202,14 +207,18 @@ export default function IndexPage({
         className="w-full z-20 flex flex-row flex-wrap justify-between gap-4 py-8 md:py-10"
         id="layanan"
       >
-        <LayananSection layanan={data.data.layanan} sistem={data.data.sistem} />
+        <LayananSection
+          layanan={data.data.layanan}
+          overview={data.data.overview}
+          sistem={data.data.sistem}
+        />
       </section>
 
       <section
         className="w-full z-20 flex flex-row flex-wrap py-8 md:py-10"
         id="testimoni"
       >
-        <Testimonials />
+        <Testimonials overview={data.data.overview} />
       </section>
 
       <section

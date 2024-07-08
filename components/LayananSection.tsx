@@ -19,6 +19,21 @@ type Props = {
       title: string;
     }[];
   }[];
+  overview: {
+    id: string;
+    title: string;
+    slogan: string;
+    deskripsi: string;
+    deskripsi2: string;
+    nomor_wa: string;
+    text_chat_wa: string;
+    label_wa: string;
+    text_dibawah_wa?: string;
+    title_layanan?: string;
+    subtitle_layanan?: string;
+    title_testimoni?: string;
+    subtitle_testimoni?: string;
+  };
 };
 
 const LayananSection = (props: Props) => {
@@ -51,10 +66,14 @@ const LayananSection = (props: Props) => {
 
       <div className="text-center z-20 mt-40">
         <h1 className="text-3xl font-bold text-gray-800 sm:text-4xl">
-          Layanan Bimbel Kami
+          {props.overview.title_layanan
+            ? props.overview.title_layanan
+            : "Layanan Bimbel Kami"}
         </h1>
         <p className="mt-1 text-gray-600 ">
-          Temukan Paket Belajar yang Sesuai dengan Tujuan dan Kebutuhanmu
+          {props.overview.subtitle_layanan
+            ? props.overview.subtitle_layanan
+            : "Temukan Paket Belajar yang Sesuai dengan Tujuan dan Kebutuhanmu"}
         </p>
       </div>
       <div className="grid md:grid-cols-3 lg:grid-cols-3 items-center gap-40 mt-16">

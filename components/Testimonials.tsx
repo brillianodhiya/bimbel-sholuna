@@ -4,7 +4,23 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-type Props = {};
+type Props = {
+  overview: {
+    id: string;
+    title: string;
+    slogan: string;
+    deskripsi: string;
+    deskripsi2: string;
+    nomor_wa: string;
+    text_chat_wa: string;
+    label_wa: string;
+    text_dibawah_wa?: string;
+    title_layanan?: string;
+    subtitle_layanan?: string;
+    title_testimoni?: string;
+    subtitle_testimoni?: string;
+  };
+};
 
 const data = [
   {
@@ -101,10 +117,14 @@ const Testimonials = (props: Props) => {
         <div className="relative flex flex-col max-w-full px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
           <div className="text-center z-20 mb-24">
             <h1 className="text-3xl font-bold text-[#34D399] sm:text-4xl">
-              Apa Kata Mereka{" "}
+              {props.overview.title_testimoni
+                ? props.overview.title_testimoni
+                : "Apa Kata Mereka"}
             </h1>
             <p className="mt-1 text-[#F9F8FE]">
-              Berbagai kisah sukses dan inspiratif bersama sobat sholuna{" "}
+              {props.overview.subtitle_testimoni
+                ? props.overview.subtitle_testimoni
+                : "Berbagai kisah sukses dan inspiratif bersama sobat Bimbel Sholuna"}
             </p>
           </div>
 
