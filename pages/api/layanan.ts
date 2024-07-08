@@ -94,11 +94,6 @@ export default async function handler(
     // Handle any other HTTP method
     // console.log(req.body);
     const layanans = await prisma.layanan.findMany({
-      // where: {
-      //   id: {
-      //     in: ["1", "2", "3", "4", "5", "6", "7"],
-      //   },
-      // },
       include: {
         layananDetails: {
           select: {
