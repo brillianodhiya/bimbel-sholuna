@@ -16,7 +16,7 @@ export const Head = () => {
         name="viewport"
       />
       <link href="/logo.png" rel="icon" />
-      <link as="image" href={"/banner-home.png"} rel="preload" />
+      {/* <link as="image" href={"/banner-home.png"} rel="preload" /> */}
     </NextHead>
   );
 };
