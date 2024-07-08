@@ -155,10 +155,11 @@ export default function IndexPage({
                   <Image
                     alt="Image Description"
                     className="w-2/3 rounded-md z-30 relative"
-                    fetchPriority="high"
-                    height={500}
+                    // fetchPriority="high"
+                    height={400}
+                    loading="eager"
                     src="/banner-home.png"
-                    width={500}
+                    width={400}
                   />
                 </div>
               </div>
