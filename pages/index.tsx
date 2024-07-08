@@ -1,4 +1,10 @@
-import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
+/* eslint-disable prettier/prettier */
+import type {
+  // InferGetServerSidePropsType,
+  // GetServerSideProps,
+  InferGetStaticPropsType,
+  GetStaticProps,
+} from "next";
 
 import Image from "next/image";
 import { Button } from "@nextui-org/button";
@@ -29,23 +35,23 @@ type Overview = {
   };
 };
 
-export const getServerSideProps = (async (context) => {
+export const getStaticProps = (async (context) => {
   // Fetch data from external API
   // Add whatever `Cache-Control` value you want here
-  context.res.setHeader(
-    "Cache-Control",
-    "public, s-maxage=10000, stale-while-revalidate=59"
-  );
+  // context.res.setHeader(
+  //   "Cache-Control",
+  //   "public, s-maxage=10000, stale-while-revalidate=59"
+  // );
   const res = await fetch("https://bimbelsholuna.com/api/overview");
   const overview: Overview = await res.json();
   // Pass data to the page via props
 
   return { props: { overview } };
-}) satisfies GetServerSideProps<{ overview: Overview }>;
+}) satisfies GetStaticProps<{ overview: Overview }>;
 
 export default function IndexPage({
   overview,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   // console.log(overview);
   return (
     <DefaultLayout>
