@@ -3,7 +3,62 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 
-type Props = {};
+type Props = {
+  layanan: {
+    id: string;
+    title: string;
+    deskripsi: string;
+    deksripsi_panjang: string;
+    layananDetails: {
+      id: string;
+      title: string;
+    }[];
+  }[];
+};
+
+const ComponentMaping = ({
+  data,
+}: {
+  data: { id: string; title: string }[];
+}) => {
+  const maxItemsPerList = 5; // Set the maximum number of items per list
+  const lists = []; // Array to store lists
+
+  // Iterate through the data and create lists
+  for (let i = 0; i < data.length; i += maxItemsPerList) {
+    const sublist = data.slice(i, i + maxItemsPerList); // Get a sublist of items
+    const listItems = sublist.map((item, index) => (
+      <li key={item.id} className="flex space-x-3">
+        <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
+          <svg
+            fill="none"
+            height="32"
+            viewBox="0 0 32 32"
+            width="32"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clipRule="evenodd"
+              d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
+              fill="#54BD95"
+              fillRule="evenodd"
+            />
+          </svg>
+        </span>
+
+        <span className="text-sm sm:text-base text-gray-500">{item.title}</span>
+      </li>
+    ));
+
+    lists.push(
+      <ul key={`list-${i}`} className="space-y-2 sm:space-y-4">
+        {listItems}
+      </ul>
+    );
+  }
+
+  return <div className="flex flex-wrap flex-row gap-10">{lists}</div>;
+};
 
 const Kurikulum = (props: Props) => {
   return (
@@ -22,9 +77,9 @@ const Kurikulum = (props: Props) => {
       >
         <div className="order-1">
           <Image
-            fetchPriority="auto"
-            alt="Kurikulum Nasional"
+            alt={props.layanan[0].title}
             className="rounded-xl"
+            fetchPriority="auto"
             height={800}
             src="/ed-us-_y4FqRhxkR8-unsplash.jpg"
             width={800}
@@ -35,110 +90,14 @@ const Kurikulum = (props: Props) => {
           <div className="space-y-6 sm:space-y-8">
             <div className="space-y-2 md:space-y-4">
               <h2 className="font-bold text-3xl lg:text-4xl text-gray-800">
-                Kurikulum Nasional{" "}
+                {props.layanan[0].title}
               </h2>
               <p className="text-gray-500">
-                Kurikulum Nasional adalah kurikulum yang disusun oleh pemerintah
-                dan diterapkan di seluruh Indonesia. Kurikulum ini berlaku untuk
-                semua jenjang pendidikan, mulai dari pendidikan anak Sekolah
-                Dasar (SD) hingga pendidikan tinggi.
+                {props.layanan[0].deksripsi_panjang}
               </p>
             </div>
 
-            <ul className="space-y-2 sm:space-y-4">
-              <li className="flex space-x-3">
-                <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                  <svg
-                    fill="none"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                      fill="#54BD95"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </span>
-
-                <span className="text-sm sm:text-base text-gray-500">
-                  SD (Matematika, IPA, IPS, Bahasa Indonesia)
-                </span>
-              </li>
-
-              <li className="flex space-x-3">
-                <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                  <svg
-                    fill="none"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                      fill="#54BD95"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </span>
-
-                <span className="text-sm sm:text-base text-gray-500">
-                  SMP (Matematika, IPA, Bahasa indonesia, Bahasa Inggris)
-                </span>
-              </li>
-
-              <li className="flex space-x-3">
-                <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                  <svg
-                    fill="none"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                      fill="#54BD95"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </span>
-
-                <span className="text-sm sm:text-base text-gray-500">
-                  SMA (Matematika wajib dan lanjut, Fisika, Kimia, Biologi,
-                  Literasi Bahasa Indonesia, Bahasa Inggris, Bahasa Arab)
-                </span>
-              </li>
-
-              <li className="flex space-x-3">
-                <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                  <svg
-                    fill="none"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                      fill="#54BD95"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </span>
-
-                <span className="text-sm sm:text-base text-gray-500">
-                  Kuliah (Fisika dasar, fisika matematika, kalkulus)
-                </span>
-              </li>
-            </ul>
+            <ComponentMaping data={props.layanan[0].layananDetails} />
           </div>
         </div>
       </motion.div>
@@ -156,9 +115,9 @@ const Kurikulum = (props: Props) => {
       >
         <div className="block sm:hidden">
           <Image
-            fetchPriority="auto"
-            alt="Kurikulum Internasional"
+            alt={props.layanan[1].title}
             className="rounded-xl"
+            fetchPriority="auto"
             height={800}
             src="/ed-us-uHPfTGy-Lto-unsplash.jpg"
             width={800}
@@ -168,92 +127,21 @@ const Kurikulum = (props: Props) => {
           <div className="space-y-6 sm:space-y-8">
             <div className="space-y-2 md:space-y-4">
               <h2 className="font-bold text-3xl lg:text-4xl text-gray-800">
-                Kurikulum Internasional
+                {props.layanan[1].title}
               </h2>
               <p className="text-gray-500">
-                Kurikulum Internasional adalah kurikulum yang disusun oleh
-                lembaga pendidikan internasional. Kurikulum ini biasanya berlaku
-                untuk sekolah-sekolah internasional di Indonesia.
+                {props.layanan[1].deksripsi_panjang}
               </p>
             </div>
 
-            <ul className="space-y-2 sm:space-y-4">
-              <li className="flex space-x-3">
-                <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                  <svg
-                    fill="none"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                      fill="#54BD95"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </span>
-
-                <span className="text-sm sm:text-base text-gray-500">
-                  Cambridge O level
-                </span>
-              </li>
-
-              <li className="flex space-x-3">
-                <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                  <svg
-                    fill="none"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                      fill="#54BD95"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </span>
-
-                <span className="text-sm sm:text-base text-gray-500">
-                  Cambridge IGCSE
-                </span>
-              </li>
-
-              <li className="flex space-x-3">
-                <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                  <svg
-                    fill="none"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                      fill="#54BD95"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </span>
-
-                <span className="text-sm sm:text-base text-gray-500">
-                  Cambridge A/AS Level
-                </span>
-              </li>
-            </ul>
+            <ComponentMaping data={props.layanan[1].layananDetails} />
           </div>
         </div>
         <div className="sm:block hidden">
           <Image
-            fetchPriority="auto"
-            alt="Kurikulum Internasional"
+            alt={props.layanan[1].title}
             className="rounded-xl"
+            fetchPriority="auto"
             height={800}
             src="/ed-us-uHPfTGy-Lto-unsplash.jpg"
             width={800}
@@ -274,9 +162,9 @@ const Kurikulum = (props: Props) => {
       >
         <div>
           <Image
-            fetchPriority="auto"
-            alt="UTBK"
+            alt={props.layanan[2].title}
             className="rounded-xl"
+            fetchPriority="auto"
             height={800}
             src="/nguyen-dang-hoang-nhu-qDgTQOYk6B8-unsplash.jpg"
             width={800}
@@ -287,179 +175,14 @@ const Kurikulum = (props: Props) => {
           <div className="space-y-6 sm:space-y-8">
             <div className="space-y-2 md:space-y-4">
               <h2 className="font-bold text-3xl lg:text-4xl text-gray-800">
-                UTBK{" "}
+                {props.layanan[2].title}
               </h2>
               <p className="text-gray-500">
-                UTBK adalah ujian yang digunakan sebagai syarat masuk perguruan
-                tinggi negeri. UTBK terdiri dari beberapa tes, yaitu TPS,
-                Literasi, dan Penalaran Matematika.
+                {props.layanan[2].deksripsi_panjang}
               </p>
             </div>
-            <div className="flex flex-wrap flex-row gap-10">
-              <ul className="space-y-2 sm:space-y-4">
-                <li className="flex space-x-3">
-                  <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                    <svg
-                      fill="none"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      width="32"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clipRule="evenodd"
-                        d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                        fill="#54BD95"
-                        fillRule="evenodd"
-                      />
-                    </svg>
-                  </span>
 
-                  <span className="text-sm sm:text-base text-gray-500">
-                    TPS: Penalaran Umum.{" "}
-                  </span>
-                </li>
-
-                <li className="flex space-x-3">
-                  <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                    <svg
-                      fill="none"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      width="32"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clipRule="evenodd"
-                        d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                        fill="#54BD95"
-                        fillRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-
-                  <span className="text-sm sm:text-base text-gray-500">
-                    TPS: Pengetahuan dan pemahaman Umum.
-                  </span>
-                </li>
-
-                <li className="flex space-x-3">
-                  <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                    <svg
-                      fill="none"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      width="32"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clipRule="evenodd"
-                        d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                        fill="#54BD95"
-                        fillRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-
-                  <span className="text-sm sm:text-base text-gray-500">
-                    TPS: Pengetahuan dan pemahaman bacaan.
-                  </span>
-                </li>
-
-                <li className="flex space-x-3">
-                  <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                    <svg
-                      fill="none"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      width="32"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clipRule="evenodd"
-                        d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                        fill="#54BD95"
-                        fillRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-
-                  <span className="text-sm sm:text-base text-gray-500">
-                    TPS: pengetahuan kuantitatif.
-                  </span>
-                </li>
-              </ul>
-              <ul className="space-y-2 sm:space-y-4">
-                <li className="flex space-x-3">
-                  <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                    <svg
-                      fill="none"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      width="32"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clipRule="evenodd"
-                        d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                        fill="#54BD95"
-                        fillRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-
-                  <span className="text-sm sm:text-base text-gray-500">
-                    Literasi bahasa indonesia
-                  </span>
-                </li>
-
-                <li className="flex space-x-3">
-                  <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                    <svg
-                      fill="none"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      width="32"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clipRule="evenodd"
-                        d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                        fill="#54BD95"
-                        fillRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-
-                  <span className="text-sm sm:text-base text-gray-500">
-                    Literasi Bahasa Inggris.
-                  </span>
-                </li>
-
-                <li className="flex space-x-3">
-                  <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                    <svg
-                      fill="none"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      width="32"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clipRule="evenodd"
-                        d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                        fill="#54BD95"
-                        fillRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-
-                  <span className="text-sm sm:text-base text-gray-500">
-                    Penalaran Matematika
-                  </span>
-                </li>
-              </ul>
-            </div>
+            <ComponentMaping data={props.layanan[2].layananDetails} />
           </div>
         </div>
       </motion.div>
@@ -477,9 +200,9 @@ const Kurikulum = (props: Props) => {
       >
         <div className="block sm:hidden">
           <Image
-            fetchPriority="auto"
-            alt="Kurikulum Internasional"
+            alt={props.layanan[4].title}
             className="rounded-xl"
+            fetchPriority="auto"
             height={800}
             src="/anoushka-puri-f1YfrZ1o2r8-unsplash.jpg"
             width={800}
@@ -489,115 +212,21 @@ const Kurikulum = (props: Props) => {
           <div className="space-y-6 sm:space-y-8">
             <div className="space-y-2 md:space-y-4">
               <h2 className="font-bold text-3xl lg:text-4xl text-gray-800">
-                OSN
+                {props.layanan[4].title}
               </h2>
               <p className="text-gray-500">
-                OSN adalah singkatan dari Olimpiade Sains Nasional. OSN adalah
-                ajang perlombaan yang diikuti oleh siswa-siswa dari seluruh
-                Indonesia. OSN terdiri dari beberapa bidang, seperti Matematika,
-                Fisika, Kimia, Biologi, Astronomi, dan Informatika.
+                {props.layanan[4].deksripsi_panjang}
               </p>
             </div>
 
-            <ul className="space-y-2 sm:space-y-4">
-              <li className="flex space-x-3">
-                <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                  <svg
-                    fill="none"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                      fill="#54BD95"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </span>
-
-                <span className="text-sm sm:text-base text-gray-500">
-                  OSN Matematika SD/Madrasah{" "}
-                </span>
-              </li>
-
-              <li className="flex space-x-3">
-                <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                  <svg
-                    fill="none"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                      fill="#54BD95"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </span>
-
-                <span className="text-sm sm:text-base text-gray-500">
-                  OSN IPA SD/Madrasah{" "}
-                </span>
-              </li>
-
-              <li className="flex space-x-3">
-                <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                  <svg
-                    fill="none"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                      fill="#54BD95"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </span>
-
-                <span className="text-sm sm:text-base text-gray-500">
-                  OSN Matematika SMP{" "}
-                </span>
-              </li>
-              <li className="flex space-x-3">
-                <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                  <svg
-                    fill="none"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                      fill="#54BD95"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </span>
-
-                <span className="text-sm sm:text-base text-gray-500">
-                  OSN Fisika SMP{" "}
-                </span>
-              </li>
-            </ul>
+            <ComponentMaping data={props.layanan[4].layananDetails} />
           </div>
         </div>
         <div className="sm:block hidden">
           <Image
-            fetchPriority="auto"
-            alt="Kurikulum Internasional"
+            alt={props.layanan[4].title}
             className="rounded-xl"
+            fetchPriority="auto"
             height={800}
             src="/anoushka-puri-f1YfrZ1o2r8-unsplash.jpg"
             width={800}
@@ -618,9 +247,9 @@ const Kurikulum = (props: Props) => {
       >
         <div>
           <Image
-            fetchPriority="auto"
-            alt="Ujian Mandiri"
+            alt={props.layanan[3].title}
             className="rounded-xl"
+            fetchPriority="auto"
             height={800}
             src="/jeswin-thomas--hgJu2ykh4E-unsplash.jpg"
             width={800}
@@ -631,272 +260,13 @@ const Kurikulum = (props: Props) => {
           <div className="space-y-6 sm:space-y-8">
             <div className="space-y-2 md:space-y-4">
               <h2 className="font-bold text-3xl lg:text-4xl text-gray-800">
-                Ujian Mandiri{" "}
+                {props.layanan[3].title}
               </h2>
               <p className="text-gray-500">
-                Ujian Mandiri adalah ujian yang diselenggarakan oleh perguruan
-                tinggi. Ujian Mandiri biasanya digunakan untuk masuk ke
-                perguruan tinggi yang tidak menggunakan UTBK sebagai syarat
-                penerimaan mahasiswa baru.
+                {props.layanan[3].deksripsi_panjang}
               </p>
             </div>
-            <div className="flex flex-wrap flex-row gap-10">
-              <ul className="space-y-2 sm:space-y-4">
-                <li className="flex space-x-3">
-                  <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                    <svg
-                      fill="none"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      width="32"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clipRule="evenodd"
-                        d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                        fill="#54BD95"
-                        fillRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-
-                  <span className="text-sm sm:text-base text-gray-500">
-                    IUP ITB{" "}
-                  </span>
-                </li>
-
-                <li className="flex space-x-3">
-                  <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                    <svg
-                      fill="none"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      width="32"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clipRule="evenodd"
-                        d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                        fill="#54BD95"
-                        fillRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-
-                  <span className="text-sm sm:text-base text-gray-500">
-                    SM ITB{" "}
-                  </span>
-                </li>
-
-                <li className="flex space-x-3">
-                  <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                    <svg
-                      fill="none"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      width="32"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clipRule="evenodd"
-                        d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                        fill="#54BD95"
-                        fillRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-
-                  <span className="text-sm sm:text-base text-gray-500">
-                    SIMAK KKI UI{" "}
-                  </span>
-                </li>
-
-                <li className="flex space-x-3">
-                  <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                    <svg
-                      fill="none"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      width="32"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clipRule="evenodd"
-                        d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                        fill="#54BD95"
-                        fillRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-
-                  <span className="text-sm sm:text-base text-gray-500">
-                    UM UGM{" "}
-                  </span>
-                </li>
-
-                <li className="flex space-x-3">
-                  <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                    <svg
-                      fill="none"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      width="32"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clipRule="evenodd"
-                        d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                        fill="#54BD95"
-                        fillRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-
-                  <span className="text-sm sm:text-base text-gray-500">
-                    TMBK UM{" "}
-                  </span>
-                </li>
-
-                <li className="flex space-x-3">
-                  <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                    <svg
-                      fill="none"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      width="32"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clipRule="evenodd"
-                        d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                        fill="#54BD95"
-                        fillRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-
-                  <span className="text-sm sm:text-base text-gray-500">
-                    IUP Unair{" "}
-                  </span>
-                </li>
-              </ul>
-              <ul className="space-y-2 sm:space-y-4">
-                <li className="flex space-x-3">
-                  <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                    <svg
-                      fill="none"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      width="32"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clipRule="evenodd"
-                        d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                        fill="#54BD95"
-                        fillRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-
-                  <span className="text-sm sm:text-base text-gray-500">
-                    IUP ITS{" "}
-                  </span>
-                </li>
-
-                <li className="flex space-x-3">
-                  <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                    <svg
-                      fill="none"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      width="32"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clipRule="evenodd"
-                        d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                        fill="#54BD95"
-                        fillRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-
-                  <span className="text-sm sm:text-base text-gray-500">
-                    SM Undip{" "}
-                  </span>
-                </li>
-
-                <li className="flex space-x-3">
-                  <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                    <svg
-                      fill="none"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      width="32"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clipRule="evenodd"
-                        d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                        fill="#54BD95"
-                        fillRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-
-                  <span className="text-sm sm:text-base text-gray-500">
-                    SM Unpad{" "}
-                  </span>
-                </li>
-
-                <li className="flex space-x-3">
-                  <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                    <svg
-                      fill="none"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      width="32"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clipRule="evenodd"
-                        d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                        fill="#54BD95"
-                        fillRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-
-                  <span className="text-sm sm:text-base text-gray-500">
-                    SM IPB{" "}
-                  </span>
-                </li>
-
-                <li className="flex space-x-3">
-                  <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                    <svg
-                      fill="none"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      width="32"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clipRule="evenodd"
-                        d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                        fill="#54BD95"
-                        fillRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-
-                  <span className="text-sm sm:text-base text-gray-500">
-                    Tes MAN IC Se Indonesia{" "}
-                  </span>
-                </li>
-              </ul>
-            </div>
+            <ComponentMaping data={props.layanan[3].layananDetails} />
           </div>
         </div>
       </motion.div>
@@ -914,9 +284,9 @@ const Kurikulum = (props: Props) => {
       >
         <div className="block sm:hidden">
           <Image
-            fetchPriority="auto"
-            alt="Kedinasan"
+            alt={props.layanan[5].title}
             className="rounded-xl"
+            fetchPriority="auto"
             height={800}
             src="/kenny-eliason-zFSo6bnZJTw-unsplash.jpg"
             width={800}
@@ -926,159 +296,21 @@ const Kurikulum = (props: Props) => {
           <div className="space-y-6 sm:space-y-8">
             <div className="space-y-2 md:space-y-4">
               <h2 className="font-bold text-3xl lg:text-4xl text-gray-800">
-                Kedinasan
+                {props.layanan[5].title}
               </h2>
               <p className="text-gray-500">
-                Kedinasan adalah singkatan dari Kedinasan. Kedinasan adalah
-                ajang perlombaan yang diikuti oleh siswa-siswa dari seluruh
-                Indonesia. Kedinasan terdiri dari beberapa bidang, seperti
-                Matematika, Fisika, Kimia, Biologi, Astronomi, dan Informatika.
+                {props.layanan[5].deksripsi_panjang}
               </p>
             </div>
 
-            <ul className="space-y-2 sm:space-y-4">
-              <li className="flex space-x-3">
-                <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                  <svg
-                    fill="none"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                      fill="#54BD95"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </span>
-
-                <span className="text-sm sm:text-base text-gray-500">
-                  PKN STAN{" "}
-                </span>
-              </li>
-
-              <li className="flex space-x-3">
-                <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                  <svg
-                    fill="none"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                      fill="#54BD95"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </span>
-
-                <span className="text-sm sm:text-base text-gray-500">
-                  AKMIL{" "}
-                </span>
-              </li>
-
-              <li className="flex space-x-3">
-                <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                  <svg
-                    fill="none"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                      fill="#54BD95"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </span>
-
-                <span className="text-sm sm:text-base text-gray-500">
-                  AKPOL{" "}
-                </span>
-              </li>
-              <li className="flex space-x-3">
-                <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                  <svg
-                    fill="none"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                      fill="#54BD95"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </span>
-
-                <span className="text-sm sm:text-base text-gray-500">
-                  STIS{" "}
-                </span>
-              </li>
-              <li className="flex space-x-3">
-                <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                  <svg
-                    fill="none"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                      fill="#54BD95"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </span>
-
-                <span className="text-sm sm:text-base text-gray-500">
-                  TES AL{" "}
-                </span>
-              </li>
-              <li className="flex space-x-3">
-                <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                  <svg
-                    fill="none"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                      fill="#54BD95"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </span>
-
-                <span className="text-sm sm:text-base text-gray-500">
-                  TES AU{" "}
-                </span>
-              </li>
-            </ul>
+            <ComponentMaping data={props.layanan[5].layananDetails} />
           </div>
         </div>
         <div className="sm:block hidden">
           <Image
-            fetchPriority="auto"
-            alt="Kedinasan"
+            alt={props.layanan[5].title}
             className="rounded-xl"
+            fetchPriority="auto"
             height={800}
             src="/kenny-eliason-zFSo6bnZJTw-unsplash.jpg"
             width={800}
@@ -1099,9 +331,9 @@ const Kurikulum = (props: Props) => {
       >
         <div>
           <Image
-            fetchPriority="auto"
-            alt="Mengaji Qur'an Bersyahadah"
+            alt={props.layanan[6].title}
             className="rounded-xl"
+            fetchPriority="auto"
             height={800}
             src="/ed-us-iXUXMn_-nh8-unsplash.jpg"
             width={800}
@@ -1112,130 +344,14 @@ const Kurikulum = (props: Props) => {
           <div className="space-y-6 sm:space-y-8">
             <div className="space-y-2 md:space-y-4">
               <h2 className="font-bold text-3xl lg:text-4xl text-gray-800">
-                {"Mengaji Qur'an Bersyahadah"}{" "}
+                {props.layanan[6].title}
               </h2>
               <p className="text-gray-500">
-                {
-                  "Mengaji Qur'an Bersyahadah adalah program belajar mengaji Al-Qur'an yang dilakukan secara online. Program ini dilakukan oleh pengajar Qur'an bersyahadah (tersertifikasi)"
-                }
+                {props.layanan[6].deksripsi_panjang}
               </p>
             </div>
 
-            <ul className="space-y-2 sm:space-y-4">
-              <li className="flex space-x-3">
-                <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                  <svg
-                    fill="none"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                      fill="#54BD95"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </span>
-
-                <span className="text-sm sm:text-base text-gray-500">
-                  Metode Ummi{" "}
-                </span>
-              </li>
-
-              <li className="flex space-x-3">
-                <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                  <svg
-                    fill="none"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                      fill="#54BD95"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </span>
-
-                <span className="text-sm sm:text-base text-gray-500">
-                  Metode Tilawati{" "}
-                </span>
-              </li>
-
-              <li className="flex space-x-3">
-                <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                  <svg
-                    fill="none"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                      fill="#54BD95"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </span>
-
-                <span className="text-sm sm:text-base text-gray-500">
-                  Metode Bil Qolam{" "}
-                </span>
-              </li>
-
-              <li className="flex space-x-3">
-                <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                  <svg
-                    fill="none"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                      fill="#54BD95"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </span>
-
-                <span className="text-sm sm:text-base text-gray-500">
-                  {" Metode Iqra'"}
-                </span>
-              </li>
-              <li className="flex space-x-3">
-                <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600">
-                  <svg
-                    fill="none"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM15.6318 19.8961L21.8379 13.4961L20.4021 12.1039L14.8858 17.7926L11.5695 14.6357L10.1905 16.0843L14.2245 19.9243L14.9421 20.6074L15.6318 19.8961Z"
-                      fill="#54BD95"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </span>
-
-                <span className="text-sm sm:text-base text-gray-500">
-                  {" Metode As-Syafii"}
-                </span>
-              </li>
-            </ul>
+            <ComponentMaping data={props.layanan[6].layananDetails} />
           </div>
         </div>
       </motion.div>

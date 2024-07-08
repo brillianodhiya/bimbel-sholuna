@@ -2,185 +2,51 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-type Props = {};
+type Props = {
+  sistem: {
+    id: string;
+    title: string;
+    deskripsi: string;
+    icon: string;
+  }[];
+  layanan: {
+    id: string;
+    title: string;
+    deskripsi: string;
+    deksripsi_panjang: string;
+    layananDetails: {
+      id: string;
+      title: string;
+    }[];
+  }[];
+};
 
 const LayananSection = (props: Props) => {
   return (
     <div className="max-w-[80vw] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto z-20">
       <div className="grid md:grid-cols-3 lg:grid-cols-3 items-center gap-40">
-        <motion.div
-          animate={{ opacity: 1, x: 0 }}
-          className="text-center"
-          // exit={{ opacity: 0, x: 20 }}
-          initial={{ opacity: 0, x: -20 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="flex justify-center items-center size-12 bg-gray-50 border border-gray-200 rounded-full mx-auto">
-            <svg
-              fill="none"
-              height="30"
-              viewBox="0 0 43 43"
-              width="30"
-              xmlns="http://www.w3.org/2000/svg"
+        {props.sistem.map((val, idx) => {
+          return (
+            <motion.div
+              key={val.id}
+              animate={{ opacity: 1, x: 0 }}
+              className="text-center"
+              // exit={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.5 }}
             >
-              <g clipPath="url(#clip0_17_140)" filter="url(#filter0_d_17_140)">
-                <path
-                  d="M39 17.5C39 7.85044 31.1492 0 21.5 0C19.8759 0 18.3102 0.239275 16.8169 0.655561L16.782 0.632416C16.7738 0.644152 16.768 0.656865 16.7598 0.669905C9.40977 2.74384 4 9.49439 4 17.5C4 27.1496 11.8504 35 21.5 35C23.125 35 24.6898 34.7607 26.1831 34.3444L26.218 34.3689C26.2262 34.3572 26.2333 34.3444 26.2402 34.3314C33.5899 32.2558 39 25.5043 39 17.5ZM5.74175 18.3505H12.0486C12.1116 20.2301 12.3215 22.0792 12.7019 23.8734H7.0532C6.29724 22.1678 5.84574 20.3058 5.74175 18.3505ZM37.2579 16.6505H30.9523C30.8881 14.7699 30.6795 12.9205 30.2978 11.1263H35.9468C36.7028 12.8322 37.1543 14.6942 37.2579 16.6505ZM29.2536 16.6505H22.3492V11.1263H28.5629C28.9641 12.9173 29.1871 14.7666 29.2536 16.6505ZM22.3505 9.42887V1.74175C23.1753 1.78609 23.985 1.87704 24.7726 2.04264C26.2402 4.31999 27.3707 6.80043 28.1267 9.42887H22.3505ZM20.6505 9.42887H14.7436C15.4402 6.84705 16.4889 4.39692 17.8633 2.13718C18.765 1.92365 19.696 1.79293 20.6505 1.74175V9.42887ZM20.6505 11.1266V16.6508H13.7275C13.7637 14.7712 13.9596 12.9209 14.3306 11.1266H20.6505ZM12.0301 16.6505H5.74077C5.84476 14.6939 6.29626 12.8309 7.05222 11.1263H12.609C12.2589 12.9267 12.0653 14.7734 12.0301 16.6505ZM13.7464 18.3505H20.6508V23.8734H14.4358C14.0355 22.0824 13.8129 20.2334 13.7464 18.3505ZM20.6505 25.5708V33.2579C19.8257 33.2136 19.0147 33.1226 18.2284 32.957C16.7608 30.6797 15.6303 28.1992 14.873 25.5708C14.8733 25.5708 20.6505 25.5708 20.6505 25.5708ZM22.3505 25.5708H28.2561C27.5585 28.1526 26.5108 30.6014 25.1364 32.8625C24.2347 33.0773 23.3037 33.2067 22.3492 33.2579V25.5708H22.3505ZM22.3505 23.8734V18.3505H29.2735C29.2373 20.2288 29.0414 22.0792 28.6691 23.8734H22.3505ZM30.9696 18.3505H37.2592C37.1552 20.3071 36.7037 22.1691 35.9478 23.8734H30.391C30.7411 22.0733 30.9347 20.2266 30.9696 18.3505ZM35.0601 9.42887H29.8811C29.2478 7.09904 28.3552 4.86732 27.1966 2.77774C30.5008 4.05985 33.2623 6.42 35.0601 9.42887ZM15.481 2.89575C14.4019 4.95599 13.5746 7.14696 12.9947 9.42789H7.93989C9.68034 6.51682 12.3173 4.20459 15.481 2.89575ZM7.93989 25.5708H13.1198C13.7522 27.9006 14.6448 30.1324 15.803 32.2219C12.4992 30.9398 9.73771 28.5797 7.93989 25.5708ZM27.5187 32.1043C28.5977 30.044 29.4251 27.853 30.005 25.5721H35.0601C33.3193 28.4829 30.6828 30.7951 27.5187 32.1043Z"
-                  fill="#085C79"
-                />
-              </g>
-              <defs>
-                <filter
-                  colorInterpolationFilters="sRGB"
-                  filterUnits="userSpaceOnUse"
-                  height="43"
-                  id="filter0_d_17_140"
-                  width="43"
-                  x="0"
-                  y="0"
-                >
-                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix
-                    in="SourceAlpha"
-                    result="hardAlpha"
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                  />
-                  <feOffset dy="4" />
-                  <feGaussianBlur stdDeviation="2" />
-                  <feComposite in2="hardAlpha" operator="out" />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                  />
-                  <feBlend
-                    in2="BackgroundImageFix"
-                    mode="normal"
-                    result="effect1_dropShadow_17_140"
-                  />
-                  <feBlend
-                    in="SourceGraphic"
-                    in2="effect1_dropShadow_17_140"
-                    mode="normal"
-                    result="shape"
-                  />
-                </filter>
-                <clipPath id="clip0_17_140">
-                  <rect
-                    fill="white"
-                    height="35"
-                    transform="translate(4)"
-                    width="35"
-                  />
-                </clipPath>
-              </defs>
-            </svg>
-          </div>
-          <div className="mt-3">
-            <h3 className="text-lg font-semibold text-gray-800">
-              Sistem Belajar Online
-            </h3>
-            <p className="mt-1 text-gray-600">
-              Pembelajaran dapat diakses dimanapun dan kapanpun
-            </p>
-          </div>
-        </motion.div>
-
-        <motion.div
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center"
-          exit={{ opacity: 0, y: 20 }}
-          initial={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="flex justify-center items-center size-12 bg-gray-50 border border-gray-200 rounded-full mx-auto">
-            <svg
-              fill="none"
-              height="26"
-              viewBox="0 0 35 35"
-              width="26"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M13.125 2.91666C9.30417 2.91666 6.19792 6.02291 6.19792 9.84374C6.19792 13.5917 9.12917 16.625 12.95 16.7562C13.0667 16.7417 13.1833 16.7417 13.2708 16.7562C13.3 16.7562 13.3146 16.7562 13.3437 16.7562C13.3583 16.7562 13.3583 16.7562 13.3729 16.7562C17.1063 16.625 20.0375 13.5917 20.0521 9.84374C20.0521 6.02291 16.9458 2.91666 13.125 2.91666Z"
-                fill="#085C79"
-                opacity="0.4"
-              />
-              <path
-                d="M20.5333 20.6354C16.4646 17.9229 9.82917 17.9229 5.73125 20.6354C3.87917 21.875 2.85833 23.5521 2.85833 25.3458C2.85833 27.1396 3.87917 28.8021 5.71667 30.0271C7.75833 31.3979 10.4417 32.0833 13.125 32.0833C15.8083 32.0833 18.4917 31.3979 20.5333 30.0271C22.3708 28.7875 23.3917 27.125 23.3917 25.3167C23.3771 23.5229 22.3708 21.8604 20.5333 20.6354Z"
-                fill="#085C79"
-              />
-              <path
-                d="M29.1521 10.7042C29.3854 13.5333 27.3729 16.0125 24.5875 16.3479C24.5729 16.3479 24.5729 16.3479 24.5583 16.3479H24.5146C24.4271 16.3479 24.3396 16.3479 24.2667 16.3771C22.8521 16.45 21.5542 15.9979 20.5771 15.1667C22.0792 13.825 22.9396 11.8125 22.7646 9.62501C22.6625 8.44376 22.2542 7.3646 21.6417 6.44585C22.1958 6.16876 22.8375 5.99376 23.4938 5.93543C26.3521 5.68751 28.9042 7.81668 29.1521 10.7042Z"
-                fill="#085C79"
-                opacity="0.4"
-              />
-              <path
-                d="M32.0688 24.1937C31.9521 25.6083 31.0479 26.8333 29.5312 27.6646C28.0729 28.4667 26.2354 28.8458 24.4125 28.8021C25.4625 27.8542 26.075 26.6729 26.1917 25.4187C26.3375 23.6104 25.4771 21.875 23.7563 20.4896C22.7792 19.7167 21.6417 19.1042 20.4021 18.6521C23.625 17.7187 27.6792 18.3458 30.1729 20.3583C31.5146 21.4375 32.2 22.7937 32.0688 24.1937Z"
-                fill="#085C79"
-              />
-            </svg>
-          </div>
-          <div className="mt-3">
-            <h3 className="text-lg font-semibold text-gray-800">
-              Sistem Belajar Privat
-            </h3>
-            <p className="mt-1 text-gray-600">
-              Pembelajaran dilakukan bersama satu murid dan satu guru{" "}
-            </p>
-          </div>
-        </motion.div>
-
-        <motion.div
-          animate={{ opacity: 1, x: 0 }}
-          className="text-center"
-          exit={{ opacity: 0, x: -20 }}
-          initial={{ opacity: 0, x: 20 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="flex justify-center items-center size-12 bg-gray-50 border border-gray-200 rounded-full mx-auto">
-            <svg
-              fill="none"
-              height="28"
-              viewBox="0 0 35 35"
-              width="28"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M25.5646 11.3312C25.4625 11.3167 25.3604 11.3167 25.2584 11.3312C22.9979 11.2583 21.2042 9.40624 21.2042 7.13124C21.2042 4.81249 23.0854 2.91666 25.4188 2.91666C27.7375 2.91666 29.6334 4.79791 29.6334 7.13124C29.6188 9.40624 27.825 11.2583 25.5646 11.3312Z"
-                fill="#085C79"
-              />
-              <path
-                d="M30.3188 21.4375C28.6854 22.5313 26.3958 22.9396 24.2813 22.6625C24.8354 21.4667 25.1271 20.1396 25.1417 18.7396C25.1417 17.2813 24.8208 15.8959 24.2083 14.6855C26.3667 14.3938 28.6563 14.8021 30.3042 15.8959C32.6083 17.4125 32.6083 19.9063 30.3188 21.4375Z"
-                fill="#085C79"
-              />
-              <path
-                d="M9.39169 11.3312C9.49377 11.3167 9.59586 11.3167 9.69794 11.3312C11.9584 11.2583 13.7521 9.40624 13.7521 7.13124C13.7521 4.79791 11.8709 2.91666 9.53752 2.91666C7.21877 2.91666 5.33752 4.79791 5.33752 7.13124C5.33752 9.40624 7.13127 11.2583 9.39169 11.3312Z"
-                fill="#085C79"
-              />
-              <path
-                d="M9.55207 18.7396C9.55207 20.1542 9.85832 21.4958 10.4125 22.7063C8.35624 22.925 6.21249 22.4875 4.63749 21.4521C2.33332 19.9208 2.33332 17.4271 4.63749 15.8958C6.1979 14.8458 8.39999 14.4229 10.4708 14.6563C9.8729 15.8813 9.55207 17.2667 9.55207 18.7396Z"
-                fill="#085C79"
-              />
-              <path
-                d="M17.675 23.1437C17.5583 23.1292 17.4271 23.1292 17.2958 23.1437C14.6125 23.0562 12.4688 20.8542 12.4688 18.1417C12.4833 15.3708 14.7146 13.125 17.5 13.125C20.2708 13.125 22.5167 15.3708 22.5167 18.1417C22.5021 20.8542 20.3729 23.0562 17.675 23.1437Z"
-                fill="#085C79"
-              />
-              <path
-                d="M12.9354 26.1625C10.7333 27.6355 10.7333 30.0563 12.9354 31.5146C15.4437 33.1917 19.5562 33.1917 22.0646 31.5146C24.2667 30.0417 24.2667 27.6209 22.0646 26.1625C19.5708 24.4855 15.4583 24.4855 12.9354 26.1625Z"
-                fill="#085C79"
-              />
-            </svg>
-          </div>
-          <div className="mt-3">
-            <h3 className="text-lg font-semibold text-gray-800">
-              Sistem Belajar Semiprivat
-            </h3>
-            <p className="mt-1 text-gray-600">
-              Pembelajaran dilakukan dengan maksimal 3 murid{" "}
-            </p>
-          </div>
-        </motion.div>
+              <div className="flex justify-center items-center size-12 bg-gray-50 border border-gray-200 rounded-full mx-auto">
+                <span dangerouslySetInnerHTML={{ __html: val.icon }} />
+              </div>
+              <div className="mt-3">
+                <h3 className="text-lg font-semibold text-gray-800">
+                  {val.title}
+                </h3>
+                <p className="mt-1 text-gray-600">{val.deskripsi}</p>
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
 
       <div className="text-center z-20 mt-40">
@@ -234,12 +100,9 @@ const LayananSection = (props: Props) => {
           </div>
           <div className="mt-3">
             <h3 className="text-lg font-semibold text-gray-800">
-              Kurikulum Nasional
+              {props.layanan[0].title}
             </h3>
-            <p className="mt-1 text-gray-600">
-              Membantu siswa dalam memahami materi pelajaran yang diajarkan di
-              sekolah.
-            </p>
+            <p className="mt-1 text-gray-600">{props.layanan[0].deskripsi}</p>
           </div>
         </motion.div>
 
@@ -278,12 +141,9 @@ const LayananSection = (props: Props) => {
           </div>
           <div className="mt-3">
             <h3 className="text-lg font-semibold text-gray-800">
-              Kurikulum Internasional{" "}
+              {props.layanan[1].title}
             </h3>
-            <p className="mt-1 text-gray-600">
-              Membantu siswa dalam memahami Cambridge O level, Cambridge IGCSE,
-              Cambridge A/AS Level
-            </p>
+            <p className="mt-1 text-gray-600">{props.layanan[1].deskripsi}</p>
           </div>
         </motion.div>
 
@@ -318,11 +178,10 @@ const LayananSection = (props: Props) => {
             </svg>
           </div>
           <div className="mt-3">
-            <h3 className="text-lg font-semibold text-gray-800">UTBK</h3>
-            <p className="mt-1 text-gray-600">
-              Membantu siswa dalam memahami bagaimana mengikuti UTBK agar bisa
-              lolos ke kampus impian.
-            </p>
+            <h3 className="text-lg font-semibold text-gray-800">
+              {props.layanan[2].title}
+            </h3>
+            <p className="mt-1 text-gray-600">{props.layanan[2].deskripsi}</p>
           </div>
         </motion.div>
 
@@ -361,12 +220,9 @@ const LayananSection = (props: Props) => {
           </div>
           <div className="mt-3">
             <h3 className="text-lg font-semibold text-gray-800">
-              Ujian Mandiri
+              {props.layanan[3].title}
             </h3>
-            <p className="mt-1 text-gray-600">
-              Membantu siswa dalam memahami bagaimana mengikuti ujian mandiri
-              agar bisa lolos ke kampus impian.
-            </p>
+            <p className="mt-1 text-gray-600">{props.layanan[3].deskripsi}</p>
           </div>
         </motion.div>
 
@@ -404,11 +260,10 @@ const LayananSection = (props: Props) => {
             </svg>
           </div>
           <div className="mt-3">
-            <h3 className="text-lg font-semibold text-gray-800">OSN</h3>
-            <p className="mt-1 text-gray-600">
-              Membantu siswa dalam memahami OSN Matematika SD/Madrasah, OSN IPA
-              SD/Madrasah, OSN Matematika SMP, OSN Fisika SMP
-            </p>
+            <h3 className="text-lg font-semibold text-gray-800">
+              {props.layanan[4].title}
+            </h3>
+            <p className="mt-1 text-gray-600">{props.layanan[4].deskripsi}</p>
           </div>
         </motion.div>
 
@@ -454,11 +309,10 @@ const LayananSection = (props: Props) => {
             </svg>
           </div>
           <div className="mt-3">
-            <h3 className="text-lg font-semibold text-gray-800">Kedinasan </h3>
-            <p className="mt-1 text-gray-600">
-              Membantu siswa dalam memahami bagaimana mengikuti ujian kedinasan
-              agar dapat lolos dengan nilai baik.
-            </p>
+            <h3 className="text-lg font-semibold text-gray-800">
+              {props.layanan[5].title}
+            </h3>
+            <p className="mt-1 text-gray-600">{props.layanan[5].deskripsi}</p>
           </div>
         </motion.div>
 
@@ -497,12 +351,9 @@ const LayananSection = (props: Props) => {
           </div>
           <div className="mt-3">
             <h3 className="text-lg font-semibold text-gray-800">
-              Mengaji {"Qur'an"} Bersyahadah
+              {props.layanan[6].title}
             </h3>
-            <p className="mt-1 text-gray-600">
-              Membantu siswa dalam memahami bagaimana mengaji dengan baik dan
-              benar.
-            </p>
+            <p className="mt-1 text-gray-600">{props.layanan[6].deskripsi}</p>
           </div>
         </motion.div>
       </div>
