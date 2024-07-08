@@ -160,6 +160,7 @@ export default function IndexPage({
                     fetchPriority="auto"
                     height={400}
                     loading="eager"
+                    sizes="100vw"
                     src="/banner-home.png"
                     width={400}
                     // fetchPriority="high"
