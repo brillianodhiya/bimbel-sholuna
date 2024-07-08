@@ -163,6 +163,7 @@ export default function IndexPage({
                     src="/banner-home.png"
                     width={400}
                     // fetchPriority="high"
+                    rel="preload"
                   />
                 </div>
               </div>
