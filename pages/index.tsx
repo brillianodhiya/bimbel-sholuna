@@ -46,7 +46,7 @@ export const getStaticProps = (async (context) => {
   const overview: Overview = await res.json();
   // Pass data to the page via props
 
-  return { props: { overview } };
+  return { props: { overview }, revalidate: 10 };
 }) satisfies GetStaticProps<{ overview: Overview }>;
 
 export default function IndexPage({
