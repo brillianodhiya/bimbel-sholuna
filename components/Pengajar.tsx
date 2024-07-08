@@ -29,6 +29,7 @@ const Pengajar = (props: Props) => {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
         <div className="text-center">
           <Image
+            fetchPriority="auto"
             alt="Kak Kris"
             className="rounded-xl sm:size-48 lg:size-60 mx-auto object-cover"
             height={900}
@@ -48,6 +49,7 @@ const Pengajar = (props: Props) => {
 
         <div className="text-center">
           <Image
+            fetchPriority="auto"
             alt="Kak Fillah"
             className="rounded-xl sm:size-48 lg:size-60 mx-auto object-cover"
             height={900}
@@ -67,6 +69,7 @@ const Pengajar = (props: Props) => {
 
         <div className="text-center">
           <Image
+            fetchPriority="auto"
             alt="Kak Wulan"
             className="rounded-xl sm:size-48 lg:size-60 mx-auto object-cover"
             height={900}
@@ -86,6 +89,7 @@ const Pengajar = (props: Props) => {
 
         <div className="text-center">
           <Image
+            fetchPriority="auto"
             alt="Kak Hasya"
             className="rounded-xl sm:size-48 lg:size-60 mx-auto object-cover"
             height={900}
@@ -105,6 +109,7 @@ const Pengajar = (props: Props) => {
 
         <div className="text-center">
           <Image
+            fetchPriority="auto"
             alt="Kak Nuris"
             className="rounded-xl sm:size-48 lg:size-60 mx-auto object-cover"
             height={900}
@@ -124,6 +129,7 @@ const Pengajar = (props: Props) => {
 
         <div className="text-center">
           <Image
+            fetchPriority="auto"
             alt="Kak Hasya"
             className="rounded-xl sm:size-48 lg:size-60 mx-auto object-cover"
             height={900}

@@ -58,6 +58,7 @@ export default function IndexPage({
       <Image
         alt="Ellipse"
         className="absolute left-0 top-0 z-10 opacity-20"
+        fetchPriority="auto"
         height={2000}
         src={"/Ellipse 145.svg"}
         width={2000}
@@ -66,6 +67,7 @@ export default function IndexPage({
       <Image
         alt="Ellipse"
         className="absolute right-0 top-0 z-10 opacity-20"
+        fetchPriority="auto"
         height={2000}
         src={"/Ellipse 144.svg"}
         width={2000}
@@ -155,11 +157,12 @@ export default function IndexPage({
                   <Image
                     alt="Image Description"
                     className="w-2/3 rounded-md z-30 relative"
-                    // fetchPriority="high"
+                    fetchPriority="auto"
                     height={400}
                     loading="eager"
                     src="/banner-home.png"
                     width={400}
+                    // fetchPriority="high"
                   />
                 </div>
               </div>

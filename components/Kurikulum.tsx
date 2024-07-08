@@ -22,6 +22,7 @@ const Kurikulum = (props: Props) => {
       >
         <div className="order-1">
           <Image
+            fetchPriority="auto"
             alt="Kurikulum Nasional"
             className="rounded-xl"
             height={800}
@@ -155,6 +156,7 @@ const Kurikulum = (props: Props) => {
       >
         <div className="block sm:hidden">
           <Image
+            fetchPriority="auto"
             alt="Kurikulum Internasional"
             className="rounded-xl"
             height={800}
@@ -249,6 +251,7 @@ const Kurikulum = (props: Props) => {
         </div>
         <div className="sm:block hidden">
           <Image
+            fetchPriority="auto"
             alt="Kurikulum Internasional"
             className="rounded-xl"
             height={800}
@@ -271,6 +274,7 @@ const Kurikulum = (props: Props) => {
       >
         <div>
           <Image
+            fetchPriority="auto"
             alt="UTBK"
             className="rounded-xl"
             height={800}
@@ -473,6 +477,7 @@ const Kurikulum = (props: Props) => {
       >
         <div className="block sm:hidden">
           <Image
+            fetchPriority="auto"
             alt="Kurikulum Internasional"
             className="rounded-xl"
             height={800}
@@ -590,6 +595,7 @@ const Kurikulum = (props: Props) => {
         </div>
         <div className="sm:block hidden">
           <Image
+            fetchPriority="auto"
             alt="Kurikulum Internasional"
             className="rounded-xl"
             height={800}
@@ -612,6 +618,7 @@ const Kurikulum = (props: Props) => {
       >
         <div>
           <Image
+            fetchPriority="auto"
             alt="Ujian Mandiri"
             className="rounded-xl"
             height={800}
@@ -907,6 +914,7 @@ const Kurikulum = (props: Props) => {
       >
         <div className="block sm:hidden">
           <Image
+            fetchPriority="auto"
             alt="Kedinasan"
             className="rounded-xl"
             height={800}
@@ -1068,6 +1076,7 @@ const Kurikulum = (props: Props) => {
         </div>
         <div className="sm:block hidden">
           <Image
+            fetchPriority="auto"
             alt="Kedinasan"
             className="rounded-xl"
             height={800}
@@ -1090,6 +1099,7 @@ const Kurikulum = (props: Props) => {
       >
         <div>
           <Image
+            fetchPriority="auto"
             alt="Mengaji Qur'an Bersyahadah"
             className="rounded-xl"
             height={800}

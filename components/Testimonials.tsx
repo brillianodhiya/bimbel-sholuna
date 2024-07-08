@@ -131,6 +131,7 @@ const Testimonials = (props: Props) => {
                       <div className="flex items-center">
                         <div className="flex-shrink-0">
                           <Image
+                            fetchPriority="auto"
                             alt={val.nama}
                             className="border-2 border-solid border-green-500 size-8 sm:h-[2.875rem] sm:w-[2.875rem] rounded-full object-cover object-top"
                             height={200}

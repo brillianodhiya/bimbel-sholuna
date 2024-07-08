@@ -60,6 +60,7 @@ const Galeri = (props: Props) => {
           >
             <div className="">
               <Image
+                fetchPriority="auto"
                 alt="1 Persiapan masuk MAN IC Serpong"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 height={500}
@@ -81,6 +82,7 @@ const Galeri = (props: Props) => {
           >
             <div className="">
               <Image
+                fetchPriority="auto"
                 alt="2 Persiapan masuk MAN IC Serpong 2"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 height={500}
@@ -102,6 +104,7 @@ const Galeri = (props: Props) => {
           >
             <div className="">
               <Image
+                fetchPriority="auto"
                 alt="3 Persiapan SM ITB"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 height={500}
@@ -123,6 +126,7 @@ const Galeri = (props: Props) => {
           >
             <div className="">
               <Image
+                fetchPriority="auto"
                 alt="4 Persiapan CBT UGM"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 height={500}
@@ -144,6 +148,7 @@ const Galeri = (props: Props) => {
           >
             <div className="">
               <Image
+                fetchPriority="auto"
                 alt="5 Persiapan UTBK TPS"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 height={500}
@@ -166,6 +171,7 @@ const Galeri = (props: Props) => {
           >
             <div className="">
               <Image
+                fetchPriority="auto"
                 alt="6 Persiapan Simak KKI UI"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 height={500}
@@ -187,6 +193,7 @@ const Galeri = (props: Props) => {
           >
             <div className="">
               <Image
+                fetchPriority="auto"
                 alt="7 Persiapan UTBK Penalaran MTK"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 height={500}
@@ -210,6 +217,7 @@ const Galeri = (props: Props) => {
           >
             <div className="">
               <Image
+                fetchPriority="auto"
                 alt="8 Persiapan mandiri kelas internasional (IUP) ITB"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 height={500}
@@ -231,6 +239,7 @@ const Galeri = (props: Props) => {
           >
             <div className="">
               <Image
+                fetchPriority="auto"
                 alt="9 Persiapan KSN MTK SD"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 height={500}
@@ -252,6 +261,7 @@ const Galeri = (props: Props) => {
           >
             <div className="">
               <Image
+                fetchPriority="auto"
                 alt="1 Galeri belajar kimia SMA"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 height={500}
@@ -273,6 +283,7 @@ const Galeri = (props: Props) => {
           >
             <div className="">
               <Image
+                fetchPriority="auto"
                 alt="2 Galeri  Belajar biologi SMA"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 height={500}
@@ -294,6 +305,7 @@ const Galeri = (props: Props) => {
           >
             <div className="">
               <Image
+                fetchPriority="auto"
                 alt="3 Galeri Belajar MTK SMP"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 height={500}
@@ -324,6 +336,7 @@ const Galeri = (props: Props) => {
           >
             <div className="">
               <Image
+                fetchPriority="auto"
                 alt="Beberapa Prestasi siswa 1"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 height={500}
@@ -345,6 +358,7 @@ const Galeri = (props: Props) => {
           >
             <div className="">
               <Image
+                fetchPriority="auto"
                 alt="Beberapa Prestasi siswa 2"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 height={500}
@@ -366,6 +380,7 @@ const Galeri = (props: Props) => {
           >
             <div className="">
               <Image
+                fetchPriority="auto"
                 alt="Beberapa Prestasi siswa 3"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 height={500}
@@ -387,6 +402,7 @@ const Galeri = (props: Props) => {
           >
             <div className="">
               <Image
+                fetchPriority="auto"
                 alt="Beberapa Prestasi siswa 4"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 height={500}
@@ -408,6 +424,7 @@ const Galeri = (props: Props) => {
           >
             <div className="">
               <Image
+                fetchPriority="auto"
                 alt="Beberapa Prestasi siswa 5"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 height={500}
@@ -429,6 +446,7 @@ const Galeri = (props: Props) => {
           >
             <div className="">
               <Image
+                fetchPriority="auto"
                 alt="Beberapa Prestasi siswa 6"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 height={500}
@@ -450,6 +468,7 @@ const Galeri = (props: Props) => {
           >
             <div className="">
               <Image
+                fetchPriority="auto"
                 alt="Beberapa Prestasi siswa 7"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 height={500}
@@ -471,6 +490,7 @@ const Galeri = (props: Props) => {
           >
             <div className="">
               <Image
+                fetchPriority="auto"
                 alt="Beberapa Prestasi siswa 8"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 height={500}
@@ -494,6 +514,7 @@ const Galeri = (props: Props) => {
           onClick={closeZoomedImage}
         >
           <Image
+            fetchPriority="auto"
             alt="zoomed-image"
             layout="fill"
             objectFit="contain"
