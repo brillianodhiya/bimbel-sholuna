@@ -29,8 +29,13 @@ type Overview = {
   };
 };
 
-export const getServerSideProps = (async () => {
+export const getServerSideProps = (async (context) => {
   // Fetch data from external API
+  // Add whatever `Cache-Control` value you want here
+  context.res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=10000, stale-while-revalidate=59"
+  );
   const res = await fetch("https://bimbelsholuna.com/api/overview");
   const overview: Overview = await res.json();
   // Pass data to the page via props
