@@ -155,7 +155,7 @@ export default function IndexPage({
                 <div className="w-full text-center flex justify-center content-center items-center">
                   <div className="bg-[#34D399] w-2/3 h-[85%] absolute rounded-[30px] z-20 top-0" />
                   <Image
-                    alt="Image Description"
+                    alt="Banner-Bimbel-Sholuna"
                     className="w-2/3 rounded-md z-30 relative"
                     fetchPriority="auto"
                     height={400}
