@@ -65,11 +65,7 @@ export const getStaticProps = (async (context) => {
   //   "Cache-Control",
   //   "public, s-maxage=10000, stale-while-revalidate=59"
   // );
-  const res = await fetch(
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : "https://bimbel-sholuna.vercel.app"
-  );
+  const res = await fetch("https://bimbel-sholuna.vercel.app");
   const data: Data = await res.json();
   // Pass data to the page via props
 
