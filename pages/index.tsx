@@ -10,6 +10,7 @@ import Image from "next/image";
 import { Button } from "@nextui-org/button";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 
 import DefaultLayout from "@/layouts/default";
 import { WhatsappLogo } from "@/components/icons";
@@ -58,23 +59,31 @@ type Data = {
   };
 };
 
-export const getStaticProps = (async (context) => {
-  // Fetch data from external API
-  // Add whatever `Cache-Control` value you want here
-  // context.res.setHeader(
-  //   "Cache-Control",
-  //   "public, s-maxage=10000, stale-while-revalidate=59"
-  // );
-  const res = await fetch("https://bimbel-sholuna.vercel.app");
-  const data: Data = await res.json();
-  // Pass data to the page via props
+export default function IndexPage() {
+  const [data, setData] = useState<Data | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  return { props: { data }, revalidate: 10 };
-}) satisfies GetStaticProps<{ data: Data }>;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch("/api/alldata");
+        if (!res.ok) throw new Error("Failed to fetch data");
+        const json = await res.json();
+        setData(json);
+      } catch (err: any) {
+        setError(err.message || "Unknown error");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
 
-export default function IndexPage({
-  data,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+  if (!data) return <div>No data</div>;
+
   // console.log(overview);
   return (
     <DefaultLayout>
