@@ -10,7 +10,7 @@ import Image from "next/image";
 import { Button } from "@nextui-org/button";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+// HAPUS: import { useEffect, useState } from "react";
 
 import DefaultLayout from "@/layouts/default";
 import { WhatsappLogo } from "@/components/icons";
@@ -59,31 +59,15 @@ type Data = {
   };
 };
 
-export default function IndexPage() {
-  const [data, setData] = useState<Data | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+export const getStaticProps = (async (context) => {
+  const res = await fetch("https://bimbel-sholuna.vercel.app/api/alldata");
+  const data = await res.json();
+  return { props: { data }, revalidate: 10 };
+}) satisfies GetStaticProps<{ data: any }>;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch("/api/alldata");
-        if (!res.ok) throw new Error("Failed to fetch data");
-        const json = await res.json();
-        setData(json);
-      } catch (err: any) {
-        setError(err.message || "Unknown error");
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
-  if (!data) return <div>No data</div>;
-
+export default function IndexPage({
+  data,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   // console.log(overview);
   return (
     <DefaultLayout>
