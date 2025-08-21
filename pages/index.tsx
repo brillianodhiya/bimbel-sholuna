@@ -1,16 +1,10 @@
 /* eslint-disable prettier/prettier */
-import type {
-  // InferGetServerSidePropsType,
-  // GetServerSideProps,
-  InferGetStaticPropsType,
-  GetStaticProps,
-} from "next";
+import type { InferGetStaticPropsType, GetStaticProps } from "next";
 
 import Image from "next/image";
 import { Button } from "@nextui-org/button";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
-// HAPUS: import { useEffect, useState } from "react";
 
 import DefaultLayout from "@/layouts/default";
 import { WhatsappLogo } from "@/components/icons";
