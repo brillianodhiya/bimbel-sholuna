@@ -16,17 +16,19 @@ export default function DefaultLayout({
       <main className="container mx-auto max-w-full flex-grow pt-16 ">
         {children}
       </main>
-      <footer className="w-full flex items-center justify-center py-3 mt-20">
+      <footer className="w-full flex items-center justify-center py-3 mt-32">
         <Link
           isExternal
           className="flex items-center gap-1 text-current"
           href="https://aitilokal.com"
           title="nextui.org homepage"
         >
-          <span className="text-default-600">© 2024</span>
+          <span className="text-default-600">
+            © {new Date().getFullYear()}
+          </span>
           <p className="text-black">
-            AITI <span className="text-red-500">Indonesia</span>. All rights
-            reserved.
+            AITI Lokal <span className="text-red-500">Indonesia</span>. All
+            rights reserved.
           </p>
         </Link>
       </footer>
